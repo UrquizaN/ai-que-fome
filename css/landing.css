@@ -1,0 +1,343 @@
+:root {
+  --bs-blue: #4e73df;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+.list-inline-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.initialism {
+  font-size: 0.875em;
+  text-transform: uppercase;
+}
+
+.blockquote {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.blockquote-footer {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875em;
+  color: #6c757d;
+}
+.blockquote-footer::before {
+  content: "— ";
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.figure {
+  display: inline-block;
+}
+
+.figure-img {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.figure-caption {
+  font-size: 0.875em;
+  color: #6c757d;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm, .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md, .container-sm, .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg, .container-md, .container-sm, .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1320px;
+  }
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -.5);
+  margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.valid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #198754;
+}
+
+.valid-tooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: none;
+  max-width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: rgba(25, 135, 84, 0.9);
+  border-radius: 0.25rem;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.bg-gradient {
+  background-image: var(--bs-gradient) !important;
+}
+
+html {
+  scroll-padding-top: 4.5rem;
+}
+
+.bg-black {
+  background-color: #000 !important;
+}
+
+.bg-gradient-primary-to-secondary {
+  background: linear-gradient(45deg, #4e73df, #9f1ae2) !important;
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(#4e73df, #9f1ae2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+aside,
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.app-badge {
+  height: 3rem;
+}
+
+section.cta {
+  position: relative;
+  padding: 15rem 0;
+  background-image: url("https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=948&q=80");
+  background-position: center;
+  background-size: cover;
+}
+
+section.cta .cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+section.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.icon-feature {
+  font-size: 4rem;
+}
+
+.features-device-mockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.features-device-mockup .circle {
+  position: absolute;
+  left: 0;
+  fill: url(#circleGradient);
+  width: 70%;
+  display: none;
+}
+.features-device-mockup .circle .gradient-start-color {
+  stop-color: #4e73df;
+}
+.features-device-mockup .circle .gradient-end-color {
+  stop-color: #9f1ae2;
+}
+.features-device-mockup .shape-1 {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  transform: rotate(10deg);
+  fill: #4e73df;
+  top: 15%;
+  right: 10%;
+}
+.features-device-mockup .shape-2 {
+  position: absolute;
+  height: 0.75rem;
+  width: 0.75rem;
+  fill: #4e73df;
+  bottom: 15%;
+  left: 10%;
+}
+.features-device-mockup .device-wrapper {
+  max-width: 10rem;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+footer a:hover, footer a:active, footer a:focus {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}
+
+.masthead {
+  background-color: #f8f9fa;
+  padding-top: 9.5rem;
+  padding-bottom: 5rem;
+}
+.masthead .masthead-device-mockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.masthead .masthead-device-mockup .circle {
+  position: absolute;
+  fill: url(#circleGradient);
+  width: 70%;
+  display: none;
+}
+.masthead .masthead-device-mockup .circle .gradient-start-color {
+  stop-color: #4e73df;
+}
+.masthead .masthead-device-mockup .circle .gradient-end-color {
+  stop-color: #9f1ae2;
+}
+.masthead .masthead-device-mockup .shape-1 {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  transform: rotate(-10deg);
+  fill: #4e73df;
+  bottom: 15%;
+  left: 10%;
+}
+.masthead .masthead-device-mockup .shape-2 {
+  position: absolute;
+  height: 0.75rem;
+  width: 0.75rem;
+  fill: #4e73df;
+  top: 15%;
+  right: 10%;
+}
+.masthead .masthead-device-mockup .device-wrapper {
+  max-width: 10rem;
+}
