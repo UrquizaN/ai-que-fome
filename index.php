@@ -26,7 +26,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
 
-  <link href="css/landing.css" rel="stylesheet" />
+  <link href="./css/landing.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -42,9 +42,9 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
           <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Funcionalidades</a></li>
-          <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Registre-se</a></li>
+          <li class="nav-item"><a class="nav-link me-lg-3" href="#register">Registre-se</a></li>
         </ul>
-        <a href="/modules/login/index.html" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0"
+        <a href="./modules/login/views/index.php" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0"
           data-bs-toggle="modal" data-bs-target="#feedbackModal">
           <span class="d-flex align-items-center">
             <i class="fas fa-sign-in me-2"></i>
@@ -73,18 +73,6 @@
       </div>
     </div>
   </header>
-  <!-- Quote/testimonial aside-->
-  <aside class="text-center bg-gradient-primary-to-secondary">
-    <div class="container px-5">
-      <div class="row gx-5 justify-content-center">
-        <div class="col-xl-8">
-          <div class="h2 fs-1 text-white mb-4">"An intuitive solution to a common problem that we all face, wrapped up
-            in a single app!"</div>
-          <img src="assets/img/tnw-logo.svg" alt="..." style="height: 3rem" />
-        </div>
-      </div>
-    </div>
-  </aside>
   <!-- App features section-->
   <section id="features">
     <div class="container px-5">
@@ -348,7 +336,7 @@
         </div>
         <div class="col-sm-8 col-md-6">
           <div class="px-5 px-sm-0">
-            <img class="img-fluid rounded-circle" src="./assets/img/friends.png" alt="..." />
+            <img class="img-fluid rounded-circle" src="assets/img/friends.png" alt="..." />
           </div>
         </div>
       </div>
@@ -363,16 +351,16 @@
           <br />
           Comece agora.
         </h2>
-        <a class="btn btn-outline-light py-3 px-4 rounded-pill" href="/modules/login/register.html">Cadastre-se</a>
+        <a class="btn btn-outline-light py-3 px-4 rounded-pill" href="./modules/register/views/index.php">Cadastre-se</a>
       </div>
     </div>
   </section>
   <!-- App badge section-->
-  <section class="bg-gradient-primary-to-secondary" id="download">
+  <section class="bg-gradient-primary-to-secondary" id="register">
     <div class="container px-5">
       <h2 class="text-center text-white font-alt mb-4">Cadastre-se já!</h2>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-        <a href="/modules/login/register.html" class="btn btn-light rounded-pill px-3 mb-2 mb-lg-0"
+        <a href="./modules/register/views/index.php" class="btn btn-light rounded-pill px-3 mb-2 mb-lg-0"
           data-bs-toggle="modal" data-bs-target="#feedbackModal">
           <span class="d-flex align-items-center">
             <i class="fas fa-sign-in me-2"></i>

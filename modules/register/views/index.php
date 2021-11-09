@@ -21,7 +21,22 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="../../../css/styles.css" rel="stylesheet">
+
+  <script>
+    function registerValidation() {
+      var password = document.getElementById("password").value;
+      var passwordConfirmation = document.getElementById("passwordConfirmation").value;
+
+      if (password != passwordConfirmation) {
+        alert("As senhas não são iguais");
+        return false;
+      }
+      alert("Cadastro realizado com sucesso!");
+      return true;
+    }
+
+  </script>
 
 </head>
 
@@ -45,26 +60,42 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Ai Que Fome!</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="post" action="../controllers/index.php" onsubmit="return registerValidation()">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                      <input type="text" class="form-control form-control-user" id="name" name="name"
+                        aria-describedby="emailHelp" placeholder="Nome da escola" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="address" name="address"
+                        placeholder="Endereço" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="cnpj" class="form-control form-control-user" id="cnpj" name="cnpj"
+                        placeholder="CNPJ" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" class="form-control form-control-user" id="email" name="email"
                         aria-describedby="emailHelp" placeholder="Digite o seu email" required>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                      <input type="password" class="form-control form-control-user" id="password" name="password"
                         placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-user" id="passwordConfirmation" name="passwordConfirmation"
+                        placeholder="Confirme sua senha" required>
                     </div>
 
                     <hr>
 
                     <button class="btn btn-primary btn-user btn-block" type="submit">
-                      Entrar
+                      Cadastrar
                     </button>
                   </form>
                   <hr>
 
                   <div class="text-center">
-                    <a class="small" href="register.html">Criar uma conta!</a>
+                    <a class="small" href="../../login/views/index.php">Login</a>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="../../../css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -48,39 +48,23 @@
                   <form class="user">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                        aria-describedby="emailHelp" placeholder="Nome da escola" required>
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                        placeholder="Endereço" required>
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                        placeholder="CNPJ" required>
-                    </div>
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                         aria-describedby="emailHelp" placeholder="Digite o seu email" required>
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                         placeholder="Digite sua senha" required>
                     </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                        placeholder="Confirme sua senha" required>
-                    </div>
 
                     <hr>
 
                     <button class="btn btn-primary btn-user btn-block" type="submit">
-                      Cadastrar
+                      Entrar
                     </button>
                   </form>
                   <hr>
 
                   <div class="text-center">
-                    <a class="small" href="index.html">Login</a>
+                    <a class="small" href="../../register/views/index.php">Criar uma conta!</a>
                   </div>
                 </div>
               </div>
