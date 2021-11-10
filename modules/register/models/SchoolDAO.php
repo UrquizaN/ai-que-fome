@@ -1,5 +1,5 @@
 <?php 
-  require "Connection.php";
+  require "../../../shared/Connection.php";
 
   class SchoolDAO {
     public function createSchool($school) {

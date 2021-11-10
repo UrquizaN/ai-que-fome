@@ -22,7 +22,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="../../../css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -31,64 +31,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-utensils"></i>
-          <span>Cardápio</span></a>
-      </li>
-
-      <hr class="sidebar-divider">
-
-      <div class="sidebar-heading">
-        Consulta
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="consultar-saldo.html">
-          <i class="fas fa-fw fa-dollar-sign"></i>
-          <span>Saldo</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="consultar-responsavel.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Responsável</span></a>
-      </li>
-
-      <hr class="sidebar-divider">
-
-      <div class="sidebar-heading">
-        Cadastro
-      </div>
-
-      <li class="nav-item active">
-        <a class="nav-link" href="cadastro-produto.html">
-          <i class="fas fa-fw fa-utensils-alt"></i>
-          <span>Produtos</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="cadastro-responsavel.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Responsável</span></a>
-      </li>
-    </ul>
-    <!-- End of Sidebar -->
+  <?php require "../components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -111,12 +54,12 @@
                       <h1 class="h4 text-gray-900 mb-4">Cadastro de Produto</h1>
                     </div>
 
-                    <form action="" class="row w-100 justify-content-center">
+                    <form action="../../product/controllers/index.php" method="POST" class="row w-100 justify-content-center">
                       <div class="form-group p-0">
-                        <select name="type" class="form-control">
+                        <select name="category" class="form-control">
                           <option value="0">Selecione uma categoria...</option>
-                          <option value="bebida">Bebida</option>
-                          <option value="comida">Comida</option>
+                          <option value="1">Bebida</option>
+                          <option value="2">Comida</option>
                         </select>
                       </div>
 
@@ -125,22 +68,22 @@
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-name" placeholder="Nome do produto"
+                        <input type="text" class="form-control" name="name" placeholder="Nome do produto"
                           required>
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-ingredients"
-                          placeholder="Ingredientes do produto" required>
+                        <input type="text" class="form-control" name="ingredients"
+                          placeholder="Ingredientes do produto">
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-image"
-                          placeholder="URL da imagem do produto" required>
+                        <input type="text" class="form-control" name="image"
+                          placeholder="URL da imagem do produto">
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-price" maxlength="10"
+                        <input type="text" class="form-control" name="price" maxlength="10"
                           placeholder="Valor do produto" required>
                       </div>
 

@@ -45,13 +45,13 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Ai Que Fome!</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="POST" action="../controllers/index.php">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                      <input type="email" class="form-control form-control-user" id="email" name="email"
                         aria-describedby="emailHelp" placeholder="Digite o seu email" required>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                      <input type="password" class="form-control form-control-user" id="password" name="password"
                         placeholder="Digite sua senha" required>
                     </div>
 
