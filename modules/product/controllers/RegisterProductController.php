@@ -1,7 +1,7 @@
 <?php 
-  require "../models/Product.php";
+  require "./modules/product/models/Product.php";
 
-  class ProductController {
+  class RegisterProductController {
     private $product;
 
     public function __construct() {
@@ -18,7 +18,7 @@
 
       $this->product->createProduct();
 
-      header("Location: ../../canteen/views/index.php", true, 302);
+      header("Location: dashboard", true, 302);
     }
   }
 ?>

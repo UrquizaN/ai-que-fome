@@ -1,5 +1,5 @@
 <?php 
-  require "../models/Login.php";
+  require "./modules/login/models/Login.php";
 
   class LoginController {
     private $login;
@@ -14,8 +14,12 @@
 
       $user = $this->login->login();
 
-      require "../../canteen/views/index.php";
-      // header("Location: ../../canteen/views/index.php", true, 302);
+      if($user) {
+        // $_SESSION['user'] = $user;
+        require("./modules/canteen/views/index.php");
+      } else {
+        echo "Usuário ou senha inválidos";
+      }
     }
   }
 ?>

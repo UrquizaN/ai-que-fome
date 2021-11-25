@@ -1,5 +1,5 @@
 <?php 
-  require "../../../shared/Connection.php";
+  require "./shared/Connection.php";
 
   class ProductDAO {
     public function createProduct($product) {
@@ -15,8 +15,22 @@
           ':image' => $product->getImage(),
           ':price' => $product->getPrice()
         ));
-        
+      } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    }
 
+    public function getProducts() {
+      try {
+        $connection = Connection::getConnection();
+
+        $sql = $connection->prepare("SELECT * FROM products");
+        $sql = $sql->execute();
+        
+        $products = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($products);
+        return $products;
       } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
       }

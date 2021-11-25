@@ -22,7 +22,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-  <?php require "../components/Sidebar.php" ?>
+  <?php require_once "./modules/canteen/components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -54,7 +54,7 @@
                       <h1 class="h4 text-gray-900 mb-4">Cadastro de Produto</h1>
                     </div>
 
-                    <form action="../../product/controllers/index.php" method="POST" class="row w-100 justify-content-center">
+                    <form action="register-product" method="POST" class="row w-100 justify-content-center">
                       <div class="form-group p-0">
                         <select name="category" class="form-control">
                           <option value="0">Selecione uma categoria...</option>

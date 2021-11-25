@@ -1,5 +1,5 @@
 <?php 
-  require "../models/School.php";
+  require "./modules/register/models/School.php";
 
   class RegisterController {
     private $school;
@@ -17,7 +17,7 @@
 
       $this->school->createSchool();
 
-      header("Location: ../../login/views/index.php", true, 302);
+      header("Location: login", true, 302);
     }
   }
 ?>

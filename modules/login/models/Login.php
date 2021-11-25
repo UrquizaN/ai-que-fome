@@ -28,6 +28,7 @@
 
     public function login() {
       $loginDAO = new LoginDAO();
+
       return $loginDAO->validateLogin($this);
     }
   }

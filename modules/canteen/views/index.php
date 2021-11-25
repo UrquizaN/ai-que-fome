@@ -31,7 +31,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -40,13 +40,15 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-  <?php require "../components/Sidebar.php" ?>
+  <?php require "./modules/canteen/components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
       <div id="content">
+
+        <?php echo $user ?>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -58,6 +60,11 @@
               <h1 class="font-weight-bold text-primary">Comidas</h1>
             </div>
             <ul class="d-flex menu-container">
+              <?php 
+                foreach($products as $product) {
+                  echo "<li class='menu-item'><a href='../../../canteen/views/product.php?id={$product['id']}'>{$product['name']}</a></li>";
+                }
+              ?>
               <li class="card shadow m-4 item-container">
                 <img
                   src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"

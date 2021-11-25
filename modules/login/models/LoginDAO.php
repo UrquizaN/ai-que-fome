@@ -1,5 +1,5 @@
 <?php 
-  require "../../../shared/Connection.php";
+  require "./shared/Connection.php";
 
   class LoginDAO {
     public function validateLogin($login) {
@@ -16,7 +16,6 @@
 
         $id = $connection->lastInsertId();
         $user = $sql->setFetchMode(PDO::FETCH_ASSOC);
-        $users = array();
 
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
@@ -25,5 +24,26 @@
         echo "Error: " . $e->getMessage();
       }
     }
+
+    // public function getUserInfo($login) {
+    //   try {
+    //     $connection = Connection::getConnection();
+
+    //     $userEmail = $login->getEmail();
+
+    //     $sql = $connection->prepare("SELECT * FROM schools WHERE email = :email");
+    //     $sql->bindParam("email", $userEmail);
+    //     $user = $sql->execute();
+
+    //     $id = $connection->lastInsertId();
+    //     $user = $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+    //     $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+    //     return $user;
+    //   } catch (Exception $e) {
+    //     echo "Error: " . $e->getMessage();
+    //   }
+    // }
   }
 ?>

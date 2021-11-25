@@ -21,7 +21,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -45,7 +45,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Ai Que Fome!</h1>
                   </div>
-                  <form class="user" method="POST" action="../controllers/index.php">
+                  <form class="user" method="POST" action="login-validation">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="email" name="email"
                         aria-describedby="emailHelp" placeholder="Digite o seu email" required>
@@ -64,7 +64,7 @@
                   <hr>
 
                   <div class="text-center">
-                    <a class="small" href="../../register/views/index.php">Criar uma conta!</a>
+                    <a class="small" href="cadastrar">Criar uma conta!</a>
                   </div>
                 </div>
               </div>

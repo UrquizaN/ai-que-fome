@@ -44,7 +44,7 @@
     </div>
 
     <li class="nav-item">
-      <a class="nav-link" href="../views/RegisterProduct.php">
+      <a class="nav-link" href="cadastrar-produto">
         <i class="fas fa-fw fa-utensils-alt"></i>
         <span>Produtos</span></a>
     </li>

@@ -21,7 +21,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
   <script>
     function registerValidation() {
@@ -60,7 +60,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Ai Que Fome!</h1>
                   </div>
-                  <form class="user" method="post" action="../controllers/index.php" onsubmit="return registerValidation()">
+                  <form class="user" method="post" action="register-school" onsubmit="return registerValidation()">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="name" name="name"
                         aria-describedby="emailHelp" placeholder="Nome da escola" required>
@@ -95,7 +95,7 @@
                   <hr>
 
                   <div class="text-center">
-                    <a class="small" href="../../login/views/index.php">Login</a>
+                    <a class="small" href="login">Login</a>
                   </div>
                 </div>
               </div>
