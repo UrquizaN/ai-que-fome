@@ -20,7 +20,9 @@
 				$controller->createSchool();
 				break;
 			case "DASHBOARD":
-				require "./modules/canteen/views/index.php";
+				require "./modules/product/controllers/GetProductsController.php";
+				$controller = new GetProductsController();
+				$controller->getProducts();
 				break;
 			case "CADASTRAR-PRODUTO":
 				require "./modules/canteen/views/RegisterProduct.php";

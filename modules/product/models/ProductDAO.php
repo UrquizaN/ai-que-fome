@@ -20,20 +20,34 @@
       }
     }
 
-    public function getProducts() {
-      try {
+    public function getProducts(){
+      try{
         $connection = Connection::getConnection();
+        $sql = $connection->prepare("SELECT * from products");
+              
+         $sql->execute();
+         $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+         
+         $products = array();
 
-        $sql = $connection->prepare("SELECT * FROM products");
-        $sql = $sql->execute();
-        
-        $products = $sql->fetchAll(PDO::FETCH_ASSOC);
+         $i = 0;
 
-        var_dump($products);
-        return $products;
-      } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-      }
+         while ($key = $sql->fetch(PDO::FETCH_ASSOC)) {
+          $product = new Product();
+          $product->setCategory($key['category']);
+          $product->setCode($key['code']);
+          $product->setName($key['name']);
+          $product->setIngredients($key['ingredients']);
+          $product->setImage($key['image']);
+          $product->setPrice($key['price']);
+          $products[$i] = $product;
+          $i++;
+        }
+      return $products;
+     }
+     catch(PDOException $e){
+      return array();
+     }
     }
   }
 ?>

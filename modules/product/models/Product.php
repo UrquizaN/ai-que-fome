@@ -9,14 +9,14 @@
     private $image;
     private $price;
 
-    public function __construct($category, $code, $name, $price) {
-      $this->category = $category;
-      $this->code = $code;
-      $this->name = $name;
-      $this->price = $price;
-      $this->ingredients = "";
-      $this->image = "";
-    }
+    // public function __construct($category, $code, $name, $price) {
+    //   $this->category = $category;
+    //   $this->code = $code;
+    //   $this->name = $name;
+    //   $this->price = $price;
+    //   $this->ingredients = "";
+    //   $this->image = "";
+    // }
 
     public function getCategory() {
       return $this->category;
@@ -70,5 +70,10 @@
       $productDAO = new ProductDAO();
       $productDAO->createProduct($this);
     }
+
+    public function getProducts(){
+      $productDAO = new ProductDAO();
+      return $productDAO->getProducts();
+  }
   }
 ?>

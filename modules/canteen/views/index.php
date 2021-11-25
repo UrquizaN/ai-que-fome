@@ -48,8 +48,6 @@
       <!-- Main Content -->
       <div id="content">
 
-        <?php echo $user ?>
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -60,297 +58,86 @@
               <h1 class="font-weight-bold text-primary">Comidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php 
-                foreach($products as $product) {
-                  echo "<li class='menu-item'><a href='../../../canteen/views/product.php?id={$product['id']}'>{$product['name']}</a></li>";
-                }
-              ?>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
+              <?php for($i=0;$i<count($products);$i++){ ?>
+                <li class="card shadow m-4 item-container">
+                  <img
+                    src="<?php echo $products[$i]->getImage() ?>"
+                    class="card-img-top item-image" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $products[$i]->getName() ?></h5>
+                    <p class="card-text"><?php echo $products[$i]->getIngredients() ?></p>
+                    <div class="text-left">
+                      <h1 class="h5 text-gray-900">R$ <?php echo $products[$i]->getPrice() ?></h1>
+                    </div>
+                    <div>
+                      <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-pen"></i>
+                        </span>
+                        <span class="text">Editar</span>
+                      </a>
 
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
+                      <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-trash"></i>
+                        </span>
+                        <span class="text">Remover</span>
+                      </a>
 
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
+                      <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
+                        data-target="#removeModal">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-ban"></i>
+                        </span>
+                        <span class="text">Bloquear</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
+                </li>
+              <?php } ?>
             </ul>
 
             <div class="text">
               <h1 class="font-weight-bold text-primary">Bebidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
+              <?php for($i=0;$i<count($products);$i++){ ?>
+                <li class="card shadow m-4 item-container">
+                  <img
+                    src="<?php echo $products[$i]->getImage() ?>"
+                    class="card-img-top item-image" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $products[$i]->getName() ?></h5>
+                    <p class="card-text"><?php echo $products[$i]->getIngredients() ?></p>
+                    <div class="text-left">
+                      <h1 class="h5 text-gray-900">R$ <?php echo $products[$i]->getPrice() ?></h1>
+                    </div>
+                    <div>
+                      <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-pen"></i>
+                        </span>
+                        <span class="text">Editar</span>
+                      </a>
 
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
+                      <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-trash"></i>
+                        </span>
+                        <span class="text">Remover</span>
+                      </a>
 
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
+                      <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
+                        data-target="#removeModal">
+                        <span class="icon text-white-50">
+                          <i class="fas fa-ban"></i>
+                        </span>
+                        <span class="text">Bloquear</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="editar-produto.html" class="btn btn-block my-1 btn-block btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
-                      </span>
-                      <span class="text">Editar</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Remover</span>
-                    </a>
-
-                    <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
-                      data-target="#removeModal">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-ban"></i>
-                      </span>
-                      <span class="text">Bloquear</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
+                </li>
+              <?php } ?>
             </ul>
 
           </div>
