@@ -58,8 +58,8 @@
                       <div class="form-group p-0">
                         <select name="category" class="form-control">
                           <option value="0">Selecione uma categoria...</option>
-                          <option value="1">Bebida</option>
-                          <option value="2">Comida</option>
+                          <option value="1">Comida</option>
+                          <option value="2">Bebida</option>
                         </select>
                       </div>
 
@@ -98,15 +98,7 @@
               </div>
             </div>
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-              <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                  <span>Ai Que Fome 2021</span>
-                </div>
-              </div>
-            </footer>
-            <!-- End of Footer -->
+          <?php require_once "./modules/canteen/components/Footer.php" ?>
 
           </div>
           <!-- End of Content Wrapper -->

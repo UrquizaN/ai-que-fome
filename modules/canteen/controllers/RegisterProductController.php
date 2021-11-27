@@ -1,11 +1,11 @@
 <?php 
-  require "./modules/product/models/Product.php";
+  require "./modules/canteen/models/Product.php";
 
   class RegisterProductController {
     private $product;
 
     public function __construct() {
-      $this->product = new Product($_POST['category'], $_POST['code'], $_POST['name'], $_POST['price']);
+      $this->product = new Product($_POST['category'], $_POST['code'], $_POST['name'], $_POST['price'], $_POST['ingredients'], $_POST['image']);
     }
 
     public function createProduct() {

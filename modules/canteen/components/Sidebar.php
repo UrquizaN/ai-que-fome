@@ -2,11 +2,11 @@
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-      <div class="sidebar-brand-icon rotate-n-15">
+    <a class="sidebar-brand d-flex align-items-center" href="index.html">
+      <!-- <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
-      </div>
-      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </div> -->
+      <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['user'] ?></div>
     </a>
 
     <!-- Divider -->
@@ -50,7 +50,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="../views/RegisterParent.php">
+      <a class="nav-link" href="cadastrar-responsavel">
         <i class="fas fa-fw fa-user"></i>
         <span>Responsável</span></a>
     </li>

@@ -21,7 +21,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <?php require "../components/Sidebar.php" ?>
+    <?php require "./modules/canteen/components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -53,13 +53,13 @@
                       <h1 class="h4 text-gray-900 mb-4">Cadastro de Responsável</h1>
                     </div>
 
-                    <form action="" class="row w-100 justify-content-center">
+                    <form action="register-parent" method="post" class="row w-100 justify-content-center">
                       <div class="form-group p-0">
                         <input class="form-control" type="text" name="name" placeholder="Nome do responsável" required>
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="cpf" placeholder="CPF"
+                        <input type="text" class="form-control" name="document" placeholder="CPF"
                           required>
                       </div>
 
@@ -75,7 +75,7 @@
 
                       <div class="form-group p-0">
                         <input type="text" class="form-control" name="login"
-                          placeholder="Login" required>
+                          placeholder="Login" >
                       </div>
 
                       <div class="form-group p-0">
@@ -104,15 +104,7 @@
         </div>
         <!-- End of Page Wrapper -->
         
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Ai Que Fome 2021</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
+      <?php require_once "./modules/canteen/components/Footer.php" ?>
 
 </body>
 

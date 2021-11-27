@@ -1,5 +1,5 @@
 <?php 
-  require "./shared/Connection.php";
+  require_once "./shared/Connection.php";
 
   class LoginDAO {
     public function validateLogin($login) {

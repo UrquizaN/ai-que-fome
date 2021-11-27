@@ -20,7 +20,7 @@
 				$controller->createSchool();
 				break;
 			case "DASHBOARD":
-				require "./modules/product/controllers/GetProductsController.php";
+				require "./modules/canteen/controllers/GetProductsController.php";
 				$controller = new GetProductsController();
 				$controller->getProducts();
 				break;
@@ -28,9 +28,17 @@
 				require "./modules/canteen/views/RegisterProduct.php";
 				break;
 			case "REGISTER-PRODUCT":
-				require "./modules/product/controllers/RegisterProductController.php";
+				require "./modules/canteen/controllers/RegisterProductController.php";
 				$controller = new RegisterProductController();
 				$controller->createProduct();
+				break;
+			case "CADASTRAR-RESPONSAVEL":
+				require "./modules/canteen/views/RegisterParent.php";
+				break;
+			case "REGISTER-PARENT":
+				require "./modules/canteen/controllers/RegisterParentController.php";
+				$controller = new RegisterParentController();
+				$controller->createParent();
 				break;
 			default:
 				require "./home.php";

@@ -15,8 +15,11 @@
       $user = $this->login->login();
 
       if($user) {
-        // $_SESSION['user'] = $user;
-        require("./modules/canteen/views/index.php");
+        var_dump($user);
+        $_SESSION['user'] = $user['name'];
+        $_SESSION['address'] = $user['address'];
+        $_SESSION['cnpj'] = $user['cnpj'];
+        header("Location: Dashboard");
       } else {
         echo "Usuário ou senha inválidos";
       }

@@ -36,7 +36,6 @@
 </head>
 
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -58,16 +57,18 @@
               <h1 class="font-weight-bold text-primary">Comidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php for($i=0;$i<count($products);$i++){ ?>
+              <?php if(!$foods) {?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
+              <?php for($i=0;$i<count($foods);$i++)
+              if($foods[$i]->getCategory() == "1"){ ?>
                 <li class="card shadow m-4 item-container">
                   <img
-                    src="<?php echo $products[$i]->getImage() ?>"
+                    src="<?php echo $foods[$i]->getImage() ?>"
                     class="card-img-top item-image" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title"><?php echo $products[$i]->getName() ?></h5>
-                    <p class="card-text"><?php echo $products[$i]->getIngredients() ?></p>
+                    <h5 class="card-title"><?php echo $foods[$i]->getName() ?></h5>
+                    <p class="card-text"><?php echo $foods[$i]->getIngredients() ?></p>
                     <div class="text-left">
-                      <h1 class="h5 text-gray-900">R$ <?php echo $products[$i]->getPrice() ?></h1>
+                      <h1 class="h5 text-gray-900">R$ <?php echo $foods[$i]->getPrice() ?></h1>
                     </div>
                     <div>
                       <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
@@ -101,16 +102,18 @@
               <h1 class="font-weight-bold text-primary">Bebidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php for($i=0;$i<count($products);$i++){ ?>
+              <?php if(!$drinks) {?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
+              <?php for($i=0;$i<count($drinks);$i++)
+              if($drinks[$i]->getCategory() == "2"){ ?>
                 <li class="card shadow m-4 item-container">
                   <img
-                    src="<?php echo $products[$i]->getImage() ?>"
+                    src="<?php echo $drinks[$i]->getImage() ?>"
                     class="card-img-top item-image" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title"><?php echo $products[$i]->getName() ?></h5>
-                    <p class="card-text"><?php echo $products[$i]->getIngredients() ?></p>
+                    <h5 class="card-title"><?php echo $drinks[$i]->getName() ?></h5>
+                    <p class="card-text"><?php echo $drinks[$i]->getIngredients() ?></p>
                     <div class="text-left">
-                      <h1 class="h5 text-gray-900">R$ <?php echo $products[$i]->getPrice() ?></h1>
+                      <h1 class="h5 text-gray-900">R$ <?php echo $drinks[$i]->getPrice() ?></h1>
                     </div>
                     <div>
                       <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
@@ -172,15 +175,7 @@
           </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Ai Que Fome 2021</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
+        <?php require_once "./modules/canteen/components/Footer.php" ?>
 
 </body>
 

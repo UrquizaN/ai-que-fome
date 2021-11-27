@@ -157,6 +157,16 @@ button.close {
 
 /* SIDEBAR */
 
+.sidebar-brand {
+  padding: 16px 0;
+}
+
+.sidebar-brand-text {
+  color: #f2f2f2;
+  font-weight: 700;
+  font-size: 18px;
+}
+
 .navbar-nav {
   z-index: 10;
 }

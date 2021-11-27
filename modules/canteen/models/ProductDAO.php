@@ -1,5 +1,5 @@
 <?php 
-  require "./shared/Connection.php";
+  require_once "./shared/Connection.php";
 
   class ProductDAO {
     public function createProduct($product) {
@@ -33,7 +33,14 @@
          $i = 0;
 
          while ($key = $sql->fetch(PDO::FETCH_ASSOC)) {
-          $product = new Product();
+          $product = new Product(
+            $key['category'],
+            $key['code'],
+            $key['name'],
+            $key['ingredients'],
+            $key['image'],
+            $key['price']
+          );
           $product->setCategory($key['category']);
           $product->setCode($key['code']);
           $product->setName($key['name']);
