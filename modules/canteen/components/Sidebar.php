@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-      <a class="nav-link" href="../views/index.php">
+      <a class="nav-link" href="dashboard">
         <i class="fas fa-fw fa-utensils"></i>
         <span>Cardápio</span></a>
     </li>

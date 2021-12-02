@@ -20,17 +20,30 @@
 				$controller->createSchool();
 				break;
 			case "DASHBOARD":
-				require "./modules/canteen/controllers/GetProductsController.php";
-				$controller = new GetProductsController();
+				require "./modules/canteen/controllers/ProductController.php";
+				$controller = new ProductController();
 				$controller->getProducts();
 				break;
 			case "CADASTRAR-PRODUTO":
 				require "./modules/canteen/views/RegisterProduct.php";
 				break;
 			case "REGISTER-PRODUCT":
-				require "./modules/canteen/controllers/RegisterProductController.php";
-				$controller = new RegisterProductController();
+				require "./modules/canteen/controllers/ProductController.php";
+				$controller = new ProductController();
 				$controller->createProduct();
+				break;
+			case "EDIT-PRODUCT":
+				require "./modules/canteen/controllers/ProductController.php";
+				$controller = new ProductController();
+				$controller->editProduct();
+				break;
+			case "EDITAR-PRODUTO":
+				require "./modules/canteen/views/EditProduct.php";
+				break;
+			case "UPDATE-PRODUCT":
+				require "./modules/canteen/controllers/ProductController.php";
+				$controller = new ProductController();
+				$controller->updateProduct();
 				break;
 			case "CADASTRAR-RESPONSAVEL":
 				require "./modules/canteen/views/RegisterParent.php";
@@ -39,6 +52,22 @@
 				require "./modules/canteen/controllers/RegisterParentController.php";
 				$controller = new RegisterParentController();
 				$controller->createParent();
+				break;
+			case "CARDAPIO":
+				require "./modules/canteen/views/RegisterParent.php";
+				break;
+			case "PAINEL-PAIS":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$controller->getStudents();
+				break;
+			case "CADASTRAR-ALUNO":
+				require "./modules/parent/views/StudentRegister.php";
+				break;
+			case "REGISTER-STUDENT":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$controller->createStudent();
 				break;
 			default:
 				require "./home.php";

@@ -66,5 +66,15 @@
       $productDAO = new ProductDAO();
       return $productDAO->getProducts();
     }
+
+    public function findProduct(){
+      $productDAO = new ProductDAO();
+      return $productDAO->findProduct($this->getCode());
+    }
+
+    public function updateProduct() {
+      $productDAO = new ProductDAO();
+      $productDAO->updateProduct($this);
+    }
   }
 ?>

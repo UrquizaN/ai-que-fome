@@ -8,6 +8,7 @@
     private $email;
     private $login;
     private $password;
+    private $userType;
 
     public function __construct($name, $document, $phone, $email, $login = null, $password) {
       $this->name = $name;
@@ -16,6 +17,7 @@
       $this->email = $email;
       $this->login = $login;
       $this->password = $password;
+      $this->userType = "2";
     }
 
     public function getName() {
@@ -42,6 +44,10 @@
       return $this->password;
     }
 
+    public function getUserType() {
+      return $this->userType;
+    }
+
     public function setName($name) {
       $this->name = $name;
     }
@@ -64,6 +70,10 @@
 
     public function setPassword($password) {
       $this->password = $password;
+    }
+
+    public function setUserType($userType) {
+      $this->userType = $userType;
     }
 
     public function createParent() {

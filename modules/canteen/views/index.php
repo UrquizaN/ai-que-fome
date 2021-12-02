@@ -58,25 +58,29 @@
             </div>
             <ul class="d-flex menu-container">
               <?php if(!$foods) {?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
-              <?php for($i=0;$i<count($foods);$i++)
-              if($foods[$i]->getCategory() == "1"){ ?>
+              <?php forEach($foods as $food)
+
+              if($food->getCategory() == "1"){ ?>
                 <li class="card shadow m-4 item-container">
                   <img
-                    src="<?php echo $foods[$i]->getImage() ?>"
+                    src="<?php echo $food->getImage() ?>"
                     class="card-img-top item-image" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title"><?php echo $foods[$i]->getName() ?></h5>
-                    <p class="card-text"><?php echo $foods[$i]->getIngredients() ?></p>
+                    <h5 class="card-title"><?php echo $food->getName() ?></h5>
+                    <p class="card-text"><?php echo $food->getIngredients() ?></p>
                     <div class="text-left">
-                      <h1 class="h5 text-gray-900">R$ <?php echo $foods[$i]->getPrice() ?></h1>
+                      <h1 class="h5 text-gray-900">R$ <?php echo $food->getPrice() ?></h1>
                     </div>
                     <div>
-                      <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-pen"></i>
-                        </span>
-                        <span class="text">Editar</span>
-                      </a>
+                      <form action="edit-product" method="post">
+                        <input type="hidden" name="code" value="<?php echo $food->getCode() ?>" />
+                        <button class="btn btn-block my-1 btn-primary btn-icon-split">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-pen"></i>
+                          </span>
+                          <span class="text">Editar</span>
+                        </button>
+                      </form>
 
                       <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
                         <span class="icon text-white-50">
@@ -103,25 +107,28 @@
             </div>
             <ul class="d-flex menu-container">
               <?php if(!$drinks) {?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
-              <?php for($i=0;$i<count($drinks);$i++)
-              if($drinks[$i]->getCategory() == "2"){ ?>
+              <?php forEach($drinks as $drink)
+              if($drink->getCategory() == "2"){ ?>
                 <li class="card shadow m-4 item-container">
                   <img
-                    src="<?php echo $drinks[$i]->getImage() ?>"
+                    src="<?php echo $drink->getImage() ?>"
                     class="card-img-top item-image" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title"><?php echo $drinks[$i]->getName() ?></h5>
-                    <p class="card-text"><?php echo $drinks[$i]->getIngredients() ?></p>
+                    <h5 class="card-title"><?php echo $drink->getName() ?></h5>
+                    <p class="card-text"><?php echo $drink->getIngredients() ?></p>
                     <div class="text-left">
-                      <h1 class="h5 text-gray-900">R$ <?php echo $drinks[$i]->getPrice() ?></h1>
+                      <h1 class="h5 text-gray-900">R$ <?php echo $drink->getPrice() ?></h1>
                     </div>
                     <div>
-                      <a href="editar-produto.html" class="btn btn-block my-1 btn-primary btn-icon-split">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-pen"></i>
-                        </span>
-                        <span class="text">Editar</span>
-                      </a>
+                      <form action="edit-product" method="post">
+                        <input type="hidden" name="code" value="<?php echo $drink->getCode() ?>">
+                        <button type="submit" class="btn btn-block my-1 btn-primary btn-icon-split">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-pen"></i>
+                          </span>
+                          <span class="text">Editar</span>
+                        </button>
+                      </form>
 
                       <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
                         <span class="icon text-white-50">

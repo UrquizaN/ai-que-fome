@@ -1,109 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Cadastro de Produtos</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-  <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
-
-  <script>
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
-    })
-  </script>
-
-</head>
+  <?php include 'modules/parent/components/Header.php'; ?>
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Alunos</span></a>
-      </li>
-
-      <hr class="sidebar-divider">
-
-      <div class="sidebar-heading">
-        Consulta
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="extrato.html">
-          <i class="fas fa-fw fa-dollar-sign"></i>
-          <span>Extrato</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="restricoes.html">
-          <i class="fas fa-fw fa-ban"></i>
-          <span>Restrições</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="consumo.html">
-          <i class="fas fa-fw fa-list"></i>
-          <span>Consumo</span></a>
-      </li>
-
-      <hr class="sidebar-divider">
-
-      <div class="sidebar-heading">
-        Cadastro
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="cadastro-aluno.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Aluno</span></a>
-      </li>
-    </ul>
-    <!-- End of Sidebar -->
+    <?php require './modules/parent/components/Sidebar.php'; ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -116,11 +21,13 @@
 
           <!-- Content Row -->
           <div class="col-xl-10 col-md-12 d-flex flex-column align-items-center">
+            <?php var_dump($students); ?>
 
             <div class="mb-4 mt-5">
               <div class="card shadow h-100 py-2 my-2 border-left-primary">
                 <div class="card-body">
                   <div class="row align-items-center justify-content-center">
+
                     <div>
                       <ul class="mb-0">
                         <li class="d-flex justify-content-between">
@@ -228,15 +135,7 @@
           </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Ai Que Fome 2021</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
+        <?php require './modules/parent/components/Footer.php'; ?>
 
 </body>
 

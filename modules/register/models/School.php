@@ -7,6 +7,7 @@
     private $cnpj;
     private $email;
     private $password;
+    private $userType;
 
     public function __construct($name, $address, $cnpj, $email, $password) {
       $this->name = $name;
@@ -14,6 +15,7 @@
       $this->cnpj = $cnpj;
       $this->email = $email;
       $this->password = $password;
+      $this->userType = "1";
     }
 
     public function getName() {
@@ -36,6 +38,10 @@
       return $this->password;
     }
 
+    public function getUserType() {
+      return $this->userType;
+    }
+
     public function setName($name) {
       $this->name = $name;
     }
@@ -54,6 +60,10 @@
 
     public function setPassword($password) {
       $this->password = $password;
+    }
+
+    public function setUserType($userType) {
+      $this->userType = $userType;
     }
 
     public function createSchool() {

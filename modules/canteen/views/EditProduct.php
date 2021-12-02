@@ -22,7 +22,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-  <?php require "../components/Sidebar.php" ?>
+  <?php require "./modules/canteen/components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -54,37 +54,37 @@
                       <h1 class="h4 text-gray-900 mb-4">Editar Produto</h1>
                     </div>
 
-                    <form action="" class="row w-100 justify-content-center">
+                    <form action="update-product" method="post" class="row w-100 justify-content-center">
                       <div class="form-group p-0">
-                        <select name="type" class="form-control" value="bebida">
-                          <option value="0">Selecione uma categoria...</option>
-                          <option value="bebida">Bebida</option>
-                          <option value="comida">Comida</option>
+                        <select name="category" class="form-control" required>
+                          <option>Selecione uma categoria...</option>
+                          <option value="1" <?php if ($product->getCategory() == '1') {?> selected <?php } ?>>Comida</option>
+                          <option value="2" <?php if ($product->getCategory() == '2') {?> selected <?php } ?>>Bebida</option>
                         </select>
                       </div>
 
                       <div class="form-group p-0">
-                        <input class="form-control" type="text" name="code" placeholder="Código do produto" value="123456" required>
+                        <input class="form-control" type="text" name="code" placeholder="Código do produto" value="<?php echo $product->getCode() ?>" required>
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-name" placeholder="Nome do produto" value="Sanduiche"
+                        <input type="text" class="form-control" name="name" placeholder="Nome do produto" value="<?php echo $product->getName() ?>"
                           required>
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-ingredients"
-                          placeholder="Ingredientes do produto" value="Ingredientes" required>
+                        <input type="text" class="form-control" name="ingredients"
+                          placeholder="Ingredientes do produto" value="<?php echo $product->getIngredients() ?>" >
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-image"
-                          placeholder="URL da imagem do produto" value="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=240&q=80" required>
+                        <input type="text" class="form-control" name="image"
+                          placeholder="URL da imagem do produto" value="<?php echo $product->getImage() ?>" >
                       </div>
 
                       <div class="form-group p-0">
-                        <input type="text" class="form-control" name="product-price" maxlength="10"
-                          placeholder="Valor do produto" value="5" required>
+                        <input type="text" class="form-control" name="price" maxlength="10"
+                          placeholder="Valor do produto" value="<?php echo $product->getPrice() ?>" required>
                       </div>
 
                       <hr>
@@ -101,15 +101,7 @@
               </div>
             </div>
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-              <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                  <span>Ai Que Fome 2021</span>
-                </div>
-              </div>
-            </footer>
-            <!-- End of Footer -->
+            <?php require "./modules/canteen/components/Footer.php" ?>            
 
           </div>
           <!-- End of Content Wrapper -->
