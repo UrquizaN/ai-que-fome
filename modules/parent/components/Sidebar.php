@@ -14,7 +14,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="painel-pais">
           <i class="fas fa-fw fa-user"></i>
           <span>Alunos</span></a>
       </li>
