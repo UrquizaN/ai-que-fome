@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php include 'modules/parent/components/Header.php'; ?>
+<?php include 'modules/parent/components/Header.php'; ?>
 
 <body id="page-top">
 
@@ -21,87 +21,57 @@
 
           <!-- Content Row -->
           <div class="col-xl-10 col-md-12 d-flex flex-column align-items-center">
-            <?php var_dump($students); ?>
+            <ul class="mb-4 mt-5">
+              <?php
+              foreach ($students as $student) : ?>
+                <li class="card shadow h-100 py-2 my-2 border-left-primary">
+                  <div class="mb-0">
+                    <div class="card-body">
+                      <div class="row align-items-center justify-content-center">
 
-            <div class="mb-4 mt-5">
-              <div class="card shadow h-100 py-2 my-2 border-left-primary">
-                <div class="card-body">
-                  <div class="row align-items-center justify-content-center">
+                        <div>
+                          <div class="d-flex justify-content-between">
+                            <p class="mb-0 d-flex align-items-center flex-fill"><?php echo $student->getName() ?></p>
+                            <p class="mb-0 d-flex align-items-center px-5">R$ <?php echo $student->getBalance() ?></p>
+                            <div class="d-flex">
+                              <form action="deposit">
+                                <button type="submit" class="btn btn-success btn-icon-split mx-1">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-dollar-sign"></i>
+                                  </span>
+                                  <span class="text">Depositar</span>
+                                </button>
+                              </form>
 
-                    <div>
-                      <ul class="mb-0">
-                        <li class="d-flex justify-content-between">
-                          <p class="mb-0 d-flex align-items-center flex-fill">Maria Eduarda</p>
-                          <p class="mb-0 d-flex align-items-center px-5">R$ 250,00</p>
-                          <div>
-                            <a href="depositar.html" class="btn btn-success btn-icon-split">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-dollar-sign"></i>
-                              </span>
-                              <span class="text">Depositar</span>
-                            </a>
-                            
-                            <a href="editar-aluno.html" class="btn btn-primary btn-icon-split">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-pen"></i>
-                              </span>
-                              <span class="text">Editar</span>
-                            </a>
+                              <form action="editar-aluno" method="post" class="d-flex justify-content-between">
+                                <input type="hidden" name="studentId" value="<?php echo $student->getStudentId() ?>">
+                                <button type="submit" class="btn btn-primary btn-icon-split mx-1">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-pen"></i>
+                                  </span>
+                                  <span class="text">Editar</span>
+                                </button>
+                              </form>
 
-                            <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-trash"></i>
-                              </span>
-                              <span class="text">Remover</span>
-                            </a>
+                              <form action="remove">
+                                <button type="submit" class="btn btn-danger btn-icon-split mx-1" data-toggle="modal" data-target="#removeModal">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-trash"></i>
+                                  </span>
+                                  <span class="text">Remover</span>
+                                </button>
+                              </form>
+                            </div>
                           </div>
-                        </li>
-                      </ul>
+                        </div>
+
+                      </div>
                     </div>
-
                   </div>
-                </div>
-              </div>
+                </li>
+              <?php endforeach  ?>
 
-              <div class="card shadow h-100 py-2 my-2 border-left-primary">
-                <div class="card-body">
-                  <div class="row align-items-center justify-content-center">
-                    <div>
-                      <ul class="mb-0">
-                        <li class="d-flex justify-content-between">
-                          <p class="mb-0 d-flex align-items-center flex-fill">Daniel</p>
-                          <p class="mb-0 d-flex align-items-center px-5">R$ 250,00</p>
-                          <div>
-                            <a href="depositar.html" class="btn btn-success btn-icon-split">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-dollar-sign"></i>
-                              </span>
-                              <span class="text">Depositar</span>
-                            </a>
-                            
-                            <a href="editar-aluno.html" class="btn btn-primary btn-icon-split">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-pen"></i>
-                              </span>
-                              <span class="text">Editar</span>
-                            </a>
-
-                            <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-trash"></i>
-                              </span>
-                              <span class="text">Remover</span>
-                            </a>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            </ul>
 
           </div>
           <!-- End of Content Wrapper -->
@@ -109,8 +79,7 @@
         <!-- End of Page Wrapper -->
 
         <!-- Modal -->
-        <div class="modal fade" id="removeModal" tabindex="-1" role="dialog"
-          aria-labelledby="removeModal" aria-hidden="true">
+        <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModal" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">

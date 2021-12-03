@@ -69,6 +69,16 @@
 				$controller = new StudentsController();
 				$controller->createStudent();
 				break;
+			case "EDITAR-ALUNO":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$controller->editStudent();
+				break;
+			case "UPDATE-STUDENT":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$controller->updateStudent();
+				break;
 			default:
 				require "./home.php";
 				break;

@@ -26,7 +26,7 @@
         $sql = $connection->prepare("SELECT * from products");
               
          $sql->execute();
-         $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+         $sql->setFetchMode(PDO::FETCH_ASSOC);
          
          $products = array();
 

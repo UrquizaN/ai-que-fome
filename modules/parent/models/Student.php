@@ -5,13 +5,22 @@
     private $studentId;
     private $class;
     private $shift;
+    private $balance;
     private $name;
     private $phone;
     private $email;
     private $password;
     private $userType;
 
-    public function __construct() {
+    public function __construct($studentId = '', $class = '', $shift = '1', $name = '', $phone = null, $email = null, $password = null) {
+      $this->studentId = $studentId;
+      $this->class = $class;
+      $this->shift = $shift;
+      $this->name = $name;
+      $this->phone = $phone;
+      $this->email = $email;
+      $this->balance = 0;
+      $this->password = $password;
       $this->userType = "3";
     }
 
@@ -29,6 +38,10 @@
 
     public function getClass() {
       return $this->class;
+    }
+
+    public function getBalance() {
+      return $this->balance;
     }
 
     public function getPhone() {
@@ -59,6 +72,10 @@
       $this->shift = $shift;
     }
 
+    public function setBalance($balance) {
+      $this->balance = $balance;
+    }
+
     public function setClass($class) {
       $this->class = $class;
     }
@@ -83,6 +100,16 @@
     public function getStudents() {
       $studentDAO = new StudentDAO();
       $studentDAO->getStudents($this);
+    }
+
+    public function findStudent($studentId){
+      $studentDAO = new StudentDAO();
+      $studentDAO->findStudent($studentId);
+    }
+
+    public function updateStudent() {
+      $studentDAO = new StudentDAO();
+      $studentDAO->updateStudent($this);
     }
   }
 ?>

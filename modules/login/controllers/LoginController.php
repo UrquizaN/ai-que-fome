@@ -28,7 +28,7 @@
             break;
           case '2':
             $_SESSION['user'] = $user['name'];
-            header("Location: Painel-Pais");
+            header("Location: painel-pais");
             break;
           case '3':
             $_SESSION['user'] = $user['name'];

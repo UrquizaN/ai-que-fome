@@ -1,5 +1,5 @@
 <?php 
-  require "./modules/student/models/Student.php";
+  require "./modules/parent/models/Student.php";
 
   class StudentsController {
     private $student;
@@ -19,13 +19,21 @@
       
       $this->student->createStudent();
 
-      header("Location: Painel-Pais", true, 302);
+      header("Location: painel-pais", true, 302);
     }
 
     public function getStudents() {
-      $students = $this->student->getStudents();
+      $this->student->getStudents();
+    }
+
+    public function editStudent() {
+      $this->student->findStudent($_POST['studentId']);
+    }
+
+    public function updateStudent() {
+      $this->student->updateStudent();
   
-      require "./modules/parent/views/index.php";
+      header("Location: painel-pais", true, 302);
     }
   }
 ?>
