@@ -111,5 +111,10 @@
       $studentDAO = new StudentDAO();
       $studentDAO->updateStudent($this);
     }
+
+    public function deleteStudent() {
+      $studentDAO = new StudentDAO();
+      $studentDAO->deleteStudent($this);
+    }
   }
 ?>

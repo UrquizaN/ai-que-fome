@@ -35,5 +35,11 @@
   
       header("Location: painel-pais", true, 302);
     }
+
+    public function deleteStudent() {
+      $this->student->deleteStudent();
+  
+      header("Location: painel-pais", true, 302);
+    }
   }
 ?>

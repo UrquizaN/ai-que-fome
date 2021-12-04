@@ -22,6 +22,7 @@
           <!-- Content Row -->
           <div class="col-xl-10 col-md-12 d-flex flex-column align-items-center">
             <ul class="mb-4 mt-5">
+              <?php if(!$students) {?><h2>Nenhuma aluno cadastrado...</h2><?php } ?>
               <?php
               foreach ($students as $student) : ?>
                 <li class="card shadow h-100 py-2 my-2 border-left-primary">
@@ -53,14 +54,12 @@
                                 </button>
                               </form>
 
-                              <form action="remove">
-                                <button type="submit" class="btn btn-danger btn-icon-split mx-1" data-toggle="modal" data-target="#removeModal">
-                                  <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                  </span>
-                                  <span class="text">Remover</span>
-                                </button>
-                              </form>
+                              <button type="submit" class="btn btn-danger btn-icon-split mx-1" onclick="<?php $_SESSION['studentToDelete'] = $student->getStudentId() ?>" data-toggle="modal" data-target="#removeModal">
+                                <span class="icon text-white-50">
+                                  <i class="fas fa-trash"></i>
+                                </span>
+                                <span class="text">Remover</span>
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -89,16 +88,21 @@
                 </button>
               </div>
               <div class="modal-body">
-                Você realmente deseja excluir?
+                Você realmente deseja excluir? 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                  <span class="icon text-white-50">
-                    <i class="fas fa-trash"></i>
-                  </span>
-                  <span class="text">Remover</span>
-                </a>
+                
+                <form action="remove-student" method="post">
+                  <input type="hidden" name="studentToDelete" value="<?php echo $_SESSION['studentToDelete'] ?>">
+                  <button type="submit" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text">Remover</span>
+                  </button>
+                </form>
+                
               </div>
             </div>
           </div>

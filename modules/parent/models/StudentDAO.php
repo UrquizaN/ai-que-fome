@@ -115,5 +115,19 @@
         echo "Error: " . $e->getMessage();
       }
     }
+
+    public function deleteStudent(){
+      try{
+        $connection = Connection::getConnection();
+        $sql = $connection->prepare("DELETE FROM students WHERE studentId = :studentId");
+        $sql->bindValue(":studentId", $_POST['studentToDelete']);
+
+        var_dump($_POST['studentToDelete']);
+        
+        $sql->execute();
+      } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    }
   }
 ?>

@@ -79,6 +79,11 @@
 				$controller = new StudentsController();
 				$controller->updateStudent();
 				break;
+			case "REMOVE-STUDENT":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$controller->deleteStudent();
+				break;
 			default:
 				require "./home.php";
 				break;
