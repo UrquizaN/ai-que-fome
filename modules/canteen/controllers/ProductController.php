@@ -23,7 +23,9 @@ class ProductController{
       }
     }
 
-    require "./modules/canteen/views/index.php";
+    $data = array($foods, $drinks);
+
+    return $data;
   }
 
   public function findProduct() {

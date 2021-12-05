@@ -54,5 +54,10 @@
         <i class="fas fa-fw fa-user"></i>
         <span>Responsável</span></a>
     </li>
+
+    <a class="d-flex mt-auto py-4 nav-link align-items-center justify-content-between bg-secondary" href="logout">
+      <div class="sidebar-brand-text mx-3">Sair</div>
+      <i class="fas fa-fw fa-sign-out-alt"></i>
+    </a>
   </ul>
-  <!-- End of Sidebar -->  
+  <!-- End of Sidebar -->

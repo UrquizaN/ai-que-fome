@@ -57,8 +57,8 @@
               <h1 class="font-weight-bold text-primary">Comidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php if(!$foods) {?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
-              <?php forEach($foods as $food)
+              <?php $foods = $products[0]; if(!$foods) {?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
+              <?php $foods = $products[0]; forEach($foods as $food)
 
               if($food->getCategory() == "1"){ ?>
                 <li class="card shadow m-4 item-container">
@@ -110,8 +110,8 @@
               <h1 class="font-weight-bold text-primary">Bebidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php if(!$drinks) {?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
-              <?php forEach($drinks as $drink)
+              <?php $drinks = $products[1]; if(!$drinks) {?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
+              <?php $drinks = $products[1]; forEach($drinks as $drink)
               if($drink->getCategory() == "2"){ ?>
                 <li class="card shadow m-4 item-container">
                   <img

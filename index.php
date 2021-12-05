@@ -11,6 +11,11 @@
 				$controller = new LoginController();
 				$controller->login();
 				break;
+			case "LOGOUT":
+				require "./modules/login/controllers/LoginController.php";
+				$controller = new LoginController();
+				$controller->logout();
+				break;
 			case "CADASTRAR":
 				require("./modules/register/views/index.php");
 				break;
@@ -22,7 +27,8 @@
 			case "DASHBOARD":
 				require "./modules/canteen/controllers/ProductController.php";
 				$controller = new ProductController();
-				$controller->getProducts();
+				$products = $controller->getProducts();
+				require "./modules/canteen/views/index.php";
 				break;
 			case "CADASTRAR-PRODUTO":
 				require "./modules/canteen/views/RegisterProduct.php";
@@ -57,7 +63,7 @@
 				$controller->createParent();
 				break;
 			case "CARDAPIO":
-				require "./modules/canteen/views/RegisterParent.php";
+				require "./modules/student/views/index.php";
 				break;
 			case "PAINEL-PAIS":
 				require "./modules/parent/controllers/StudentsController.php";

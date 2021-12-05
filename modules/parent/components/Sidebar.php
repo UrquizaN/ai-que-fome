@@ -3,10 +3,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Painel</div>
       </a>
 
       <!-- Divider -->
@@ -54,5 +51,11 @@
           <i class="fas fa-fw fa-user"></i>
           <span>Aluno</span></a>
       </li>
+      
+      <a class="d-flex mt-auto py-4 nav-link align-items-center justify-content-between bg-secondary" href="logout">
+        <div class="sidebar-brand-text mx-3">Sair</div>
+        <i class="fas fa-fw fa-sign-out-alt"></i>
+      </a>
     </ul>
+
     <!-- End of Sidebar -->

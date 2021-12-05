@@ -27,6 +27,9 @@
             header("Location: painel-pais");
             break;
           case '3':
+            require "./modules/canteen/controllers/ProductController.php";
+            $controller = new ProductController();
+            $controller->getProducts();
             $_SESSION['user'] = $user['name'];
             $_SESSION['class'] = $user['class'];
             $_SESSION['balance'] = $user['balance'];
@@ -37,6 +40,11 @@
         return false;
         echo "Usuário ou senha inválidos";
       }
+    }
+
+    public function logout() {
+      session_destroy();
+      header("Location: Login");
     }
   }
 ?>

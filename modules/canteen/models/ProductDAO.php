@@ -52,6 +52,7 @@
           $products[$i] = $product;
           $i++;
         }
+        
       return $products;
      }
      catch(PDOException $e){

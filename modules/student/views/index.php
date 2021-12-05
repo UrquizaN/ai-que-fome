@@ -31,7 +31,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -49,6 +49,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+        <?php var_dump($products) ?>
           <!-- Content Row -->
           <div class="d-flex flex-column align-items-center">
 
@@ -236,16 +237,7 @@
           </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Ai Que Fome 2021</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
-
+      <?php require_once "./modules/student/components/Footer.php" ?>
 </body>
 
 </html>
