@@ -34,6 +34,7 @@
 
          while ($key = $sql->fetch(PDO::FETCH_ASSOC)) {
           $product = new Product(
+            $key['id'],
             $key['category'],
             $key['code'],
             $key['name'],
@@ -41,6 +42,7 @@
             $key['image'],
             $key['price']
           );
+          $product->setId($key['id']);
           $product->setCategory($key['category']);
           $product->setCode($key['code']);
           $product->setName($key['name']);
@@ -104,6 +106,18 @@
         $sql->bindValue(":ingredients", $_POST['ingredients']);
         $sql->bindValue(":image", $_POST['image']);
         $sql->bindValue(":price", $_POST['price']);
+
+        $sql->execute();
+      } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    }
+
+    public function deleteProduct(){
+      try{
+        $connection = Connection::getConnection();
+        $sql = $connection->prepare("DELETE FROM products WHERE id = :id");
+        $sql->bindValue(":id", $_POST['id']);
 
         $sql->execute();
       } catch (Exception $e) {

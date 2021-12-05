@@ -45,6 +45,11 @@
 				$controller = new ProductController();
 				$controller->updateProduct();
 				break;
+			case "DELETE-PRODUCT":
+				require "./modules/canteen/controllers/ProductController.php";
+				$controller = new ProductController();
+				$controller->deleteProduct();
+				break;
 			case "CADASTRAR-RESPONSAVEL":
 				require "./modules/canteen/views/RegisterParent.php";
 				break;

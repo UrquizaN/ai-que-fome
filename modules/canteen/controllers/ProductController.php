@@ -4,9 +4,6 @@ require_once "./modules/canteen/models/Product.php";
 class ProductController{
   private $product;
 
-  // public function __construct() {
-  //   $this->product = new Product($_POST['category'], $_POST['code'], $_POST['name'], $_POST['price'], $_POST['ingredients'], $_POST['image']);
-  // }
   public function __construct() {
     $this->product = new Product();
   }
@@ -55,5 +52,11 @@ class ProductController{
     $this->product->updateProduct();
 
     // header("Location: dashboard", true, 302);
+  }
+
+  public function deleteProduct() {
+    $this->product->deleteProduct();
+
+    header("Location: dashboard", true, 302);
   }
 }

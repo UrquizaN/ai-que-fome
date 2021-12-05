@@ -82,20 +82,24 @@
                         </button>
                       </form>
 
-                      <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-trash"></i>
-                        </span>
-                        <span class="text">Remover</span>
-                      </a>
+                      <form action="delete-product" method="post" onsubmit="return confirm('Deseja realmente excluir o produto <?php echo $food->getName(); ?>?');">
+                        <input type="hidden" name="id" value="<?php echo $food->getId() ?>">
+                        
+                        <button type="submit" class="btn btn-block my-1 btn-danger btn-icon-split" >
+                          <span class="icon text-white-50">
+                            <i class="fas fa-trash"></i>
+                          </span>
+                          <span class="text">Remover</span>
+                        </a>
+                      </form>
 
-                      <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
+                      <!-- <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
                         data-target="#removeModal">
                         <span class="icon text-white-50">
                           <i class="fas fa-ban"></i>
                         </span>
                         <span class="text">Bloquear</span>
-                      </a>
+                      </a> -->
                     </div>
                   </div>
                 </li>
@@ -130,20 +134,24 @@
                         </button>
                       </form>
 
-                      <a href="#" class="btn btn-block my-1 btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-trash"></i>
-                        </span>
-                        <span class="text">Remover</span>
-                      </a>
+                      <form action="delete-product" method="post" onsubmit="return confirm('Deseja realmente excluir o produto <?php echo $drink->getName(); ?>?');">
+                        <input type="hidden" name="id" value="<?php echo $drink->getId() ?>">
+                        
+                        <button type="submit" class="btn btn-block my-1 btn-danger btn-icon-split" >
+                          <span class="icon text-white-50">
+                            <i class="fas fa-trash"></i>
+                          </span>
+                          <span class="text">Remover</span>
+                        </a>
+                      </form>
 
-                      <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
+                      <!-- <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
                         data-target="#removeModal">
                         <span class="icon text-white-50">
                           <i class="fas fa-ban"></i>
                         </span>
                         <span class="text">Bloquear</span>
-                      </a>
+                      </a> -->
                     </div>
                   </div>
                 </li>
@@ -154,33 +162,6 @@
           <!-- End of Content Wrapper -->
         </div>
         <!-- End of Page Wrapper -->
-
-        <!-- Modal -->
-        <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModal"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="removeModal">Confirmação de exclusão</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Você realmente deseja excluir?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                  <span class="icon text-white-50">
-                    <i class="fas fa-trash"></i>
-                  </span>
-                  <span class="text">Remover</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <?php require_once "./modules/canteen/components/Footer.php" ?>
 

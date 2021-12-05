@@ -2,12 +2,26 @@
   require "ProductDAO.php";
 
   class Product {
+    private $id;
     private $category;
     private $code;
     private $name;
     private $ingredients;
     private $image;
     private $price;
+
+    public function __construct($category = '', $code = '', $name = '', $ingredients = null, $image = null, $price = 0) {
+      $this->category = $category;
+      $this->code = $code;
+      $this->name = $name;
+      $this->ingredients = $ingredients;
+      $this->image = $image;
+      $this->price = $price;
+    }
+
+    public function getId() {
+      return $this->id;
+    }
 
     public function getCategory() {
       return $this->category;
@@ -31,6 +45,10 @@
 
     public function getPrice() {
       return $this->price;
+    }
+
+    public function setId($id) {
+      $this->id = $id;
     }
 
     public function setCategory($category) {
@@ -75,6 +93,11 @@
     public function updateProduct() {
       $productDAO = new ProductDAO();
       $productDAO->updateProduct($this);
+    }
+
+    public function deleteProduct() {
+      $productDAO = new ProductDAO();
+      $productDAO->deleteProduct($this);
     }
   }
 ?>
