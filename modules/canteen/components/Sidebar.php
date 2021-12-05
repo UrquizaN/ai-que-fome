@@ -21,7 +21,7 @@
 
     <hr class="sidebar-divider">
 
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
       Consulta
     </div>
 
@@ -37,7 +37,7 @@
         <span>Responsável</span></a>
     </li>
 
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider"> -->
 
     <div class="sidebar-heading">
       Cadastro

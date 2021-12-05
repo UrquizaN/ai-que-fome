@@ -85,9 +85,9 @@
       return $productDAO->getProducts();
     }
 
-    public function findProduct(){
+    public function findProduct($id){
       $productDAO = new ProductDAO();
-      return $productDAO->findProduct($this->getCode());
+      return $productDAO->findProduct($id);
     }
 
     public function updateProduct() {

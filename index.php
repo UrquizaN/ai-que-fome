@@ -32,12 +32,10 @@
 				$controller = new ProductController();
 				$controller->createProduct();
 				break;
-			case "EDIT-PRODUCT":
+			case "EDITAR-PRODUTO":
 				require "./modules/canteen/controllers/ProductController.php";
 				$controller = new ProductController();
-				$controller->editProduct();
-				break;
-			case "EDITAR-PRODUTO":
+				$product = $controller->findProduct();
 				require "./modules/canteen/views/EditProduct.php";
 				break;
 			case "UPDATE-PRODUCT":

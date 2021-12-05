@@ -72,8 +72,8 @@
                       <h1 class="h5 text-gray-900">R$ <?php echo $food->getPrice() ?></h1>
                     </div>
                     <div>
-                      <form action="edit-product" method="post">
-                        <input type="hidden" name="code" value="<?php echo $food->getCode() ?>" />
+                      <form action="editar-produto" method="post">
+                        <input type="hidden" name="id" value="<?php echo $food->getId() ?>" />
                         <button class="btn btn-block my-1 btn-primary btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-pen"></i>
@@ -124,8 +124,8 @@
                       <h1 class="h5 text-gray-900">R$ <?php echo $drink->getPrice() ?></h1>
                     </div>
                     <div>
-                      <form action="edit-product" method="post">
-                        <input type="hidden" name="code" value="<?php echo $drink->getCode() ?>">
+                      <form action="editar-produto" method="post">
+                        <input type="hidden" name="id" value="<?php echo $drink->getId() ?>">
                         <button type="submit" class="btn btn-block my-1 btn-primary btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-pen"></i>

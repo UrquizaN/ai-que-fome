@@ -55,16 +55,18 @@
                     </div>
 
                     <form action="update-product" method="post" class="row w-100 justify-content-center">
+                      <input type="hidden" name="id" value="<?php echo $product->getId(); ?>">
+                      
+                      <div class="form-group p-0">
+                        <input class="form-control" type="text" name="code" placeholder="Código do produto" value="<?php echo $product->getCode() ?>" readonly required>
+                      </div>
+
                       <div class="form-group p-0">
                         <select name="category" class="form-control" required>
                           <option>Selecione uma categoria...</option>
                           <option value="1" <?php if ($product->getCategory() == '1') {?> selected <?php } ?>>Comida</option>
                           <option value="2" <?php if ($product->getCategory() == '2') {?> selected <?php } ?>>Bebida</option>
                         </select>
-                      </div>
-
-                      <div class="form-group p-0">
-                        <input class="form-control" type="text" name="code" placeholder="Código do produto" value="<?php echo $product->getCode() ?>" required>
                       </div>
 
                       <div class="form-group p-0">

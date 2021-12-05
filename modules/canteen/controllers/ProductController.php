@@ -26,6 +26,10 @@ class ProductController{
     require "./modules/canteen/views/index.php";
   }
 
+  public function findProduct() {
+    return $product = $this->product->findProduct($_POST['id']);
+  }
+
   public function createProduct() {
     $this->product->setCategory($_POST['category']);
     $this->product->setCode($_POST['code']);
@@ -39,19 +43,11 @@ class ProductController{
     header("Location: dashboard", true, 302);
   }
 
-  public function editProduct() {
-    $this->product->setCode($_POST['code']);
-
-    $product = $this->product->findProduct();
-
-    require("./modules/canteen/views/EditProduct.php");
-  }
-
   public function updateProduct() {
 
     $this->product->updateProduct();
 
-    // header("Location: dashboard", true, 302);
+    header("Location: dashboard", true, 302);
   }
 
   public function deleteProduct() {

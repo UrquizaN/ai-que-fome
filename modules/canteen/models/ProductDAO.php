@@ -59,13 +59,13 @@
      }
     }
 
-    public function findProduct($code){
+    public function findProduct($id){
       try{
         $connection = Connection::getConnection();
         
-        $sql = $connection->prepare("SELECT * from products where code = :code");
+        $sql = $connection->prepare("SELECT * from products where id = :id");
         $sql->execute(array(
-          ':code' => $code
+          ':id' => $id
         ));
 
         $sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -73,6 +73,7 @@
         $key = $sql->fetch(PDO::FETCH_ASSOC);
 
         $product = new Product(
+          $key['id'],
           $key['category'],
           $key['code'],
           $key['name'],
@@ -81,6 +82,7 @@
           $key['price']
         );
 
+        $product->setId($key['id']);
         $product->setCategory($key['category']);
         $product->setCode($key['code']);
         $product->setName($key['name']);
@@ -95,11 +97,12 @@
       }
     }
 
-    public function updateProduct($product){
+    public function updateProduct(){
       try{
         $connection = Connection::getConnection();
-        $sql = $connection->prepare("UPDATE products SET category = :category, code = :code, name = :name, ingredients = :ingredients, image = :image, price = :price");
+        $sql = $connection->prepare("UPDATE products SET category = :category, code = :code, name = :name, ingredients = :ingredients, image = :image, price = :price WHERE id = :id");
 
+        $sql->bindValue(":id", $_POST['id']);
         $sql->bindValue(":category", $_POST['category']);
         $sql->bindValue(":code", $_POST['code']);
         $sql->bindValue(":name", $_POST['name']);
