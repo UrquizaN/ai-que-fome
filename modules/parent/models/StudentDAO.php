@@ -50,7 +50,7 @@
           $i++;
         }
 
-        require "./modules/parent/views/index.php";
+       return $students;
      }
      catch(PDOException $e){
       return array();
@@ -90,7 +90,7 @@
         $student->setEmail($key['email']);
         $student->setPassword($key['password']);
 
-        require("./modules/parent/views/EditStudent.php");
+        return $student;
       }
       catch(PDOException $e){
         return null;
@@ -120,11 +120,22 @@
       try{
         $connection = Connection::getConnection();
         $sql = $connection->prepare("DELETE FROM students WHERE studentId = :studentId");
-        $sql->bindValue(":studentId", $_POST['studentToDelete']);
+        $sql->bindValue(":studentId", $_POST['studentId']);
 
-        var_dump($_POST['studentToDelete']);
-        
         $sql->execute();
+      } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    }
+
+    public function deposit($studentId, $amount){
+      try{
+        $connection = Connection::getConnection();
+        $sql = $connection->prepare("UPDATE students SET balance = balance + :amount WHERE studentId = :studentId");
+        $sql->bindValue(":amount", $amount);
+        $sql->bindValue(":studentId", $studentId);
+        $sql->execute();
+        
       } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
       }

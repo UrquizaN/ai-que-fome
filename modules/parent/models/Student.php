@@ -99,12 +99,12 @@
 
     public function getStudents() {
       $studentDAO = new StudentDAO();
-      $studentDAO->getStudents($this);
+      return $studentDAO->getStudents($this);
     }
 
     public function findStudent($studentId){
       $studentDAO = new StudentDAO();
-      $studentDAO->findStudent($studentId);
+      return $studentDAO->findStudent($studentId);
     }
 
     public function updateStudent() {
@@ -113,8 +113,21 @@
     }
 
     public function deleteStudent() {
+      echo "delete student";
       $studentDAO = new StudentDAO();
       $studentDAO->deleteStudent($this);
+    }
+
+    public function deposit($studentId, $amount) {
+      $value = $this->getBalance() + $amount;
+      $this->setBalance($value);
+
+      $this->setStudentId($studentId);
+
+      $id = $this->getStudentId();
+
+      $studentDAO = new StudentDAO();
+      $studentDAO->deposit($id, $value);
     }
   }
 ?>

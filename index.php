@@ -59,7 +59,8 @@
 			case "PAINEL-PAIS":
 				require "./modules/parent/controllers/StudentsController.php";
 				$controller = new StudentsController();
-				$controller->getStudents();
+				$students = $controller->getStudents();
+      	require "./modules/parent/views/index.php";
 				break;
 			case "CADASTRAR-ALUNO":
 				require "./modules/parent/views/StudentRegister.php";
@@ -72,12 +73,25 @@
 			case "EDITAR-ALUNO":
 				require "./modules/parent/controllers/StudentsController.php";
 				$controller = new StudentsController();
-				$controller->editStudent();
+				$student = $controller->findStudent();
+				require("./modules/parent/views/EditStudent.php");
 				break;
 			case "UPDATE-STUDENT":
 				require "./modules/parent/controllers/StudentsController.php";
 				$controller = new StudentsController();
 				$controller->updateStudent();
+				break;
+			case "DEPOSITAR":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$student = $controller->findStudent();
+				require "./modules/parent/views/Deposit.php";
+				break;
+			case "DEPOSIT":
+				require "./modules/parent/controllers/StudentsController.php";
+				$controller = new StudentsController();
+				$controller->deposit();
+				header("Location: painel-pais");
 				break;
 			case "REMOVE-STUDENT":
 				require "./modules/parent/controllers/StudentsController.php";

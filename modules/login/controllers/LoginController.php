@@ -15,10 +15,6 @@
       $user = $this->login->login();
 
       if($user) {
-        var_dump($user['userType']);
-        echo "<br>";
-        var_dump($user);
-
         switch($user['userType']) {
           case '1':
             $_SESSION['user'] = $user['name'];

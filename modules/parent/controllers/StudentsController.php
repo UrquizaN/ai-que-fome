@@ -23,11 +23,9 @@
     }
 
     public function getStudents() {
-      $this->student->getStudents();
-    }
-
-    public function editStudent() {
-      $this->student->findStudent($_POST['studentId']);
+      $students = $this->student->getStudents();
+      
+      return $students;
     }
 
     public function updateStudent() {
@@ -36,10 +34,18 @@
       header("Location: painel-pais", true, 302);
     }
 
+    public function findStudent() {
+      return $student = $this->student->findStudent($_POST['studentId']);
+    }
+
     public function deleteStudent() {
       $this->student->deleteStudent();
   
       header("Location: painel-pais", true, 302);
+    }
+
+    public function deposit() {
+      $this->student->deposit($_POST['studentId'], $_POST['amount']);
     }
   }
 ?>
