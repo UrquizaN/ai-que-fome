@@ -42,7 +42,7 @@
                         <option value="">Selecione um turno...</option>
                         <option value="1">Matutino</option>
                         <option value="2">Vespertino</option>
-                        <option value="3">Matutino</option>
+                        <option value="3">Noturno</option>
                       </select>
                     </div>
 

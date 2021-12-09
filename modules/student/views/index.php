@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Cadastro de Produtos</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-  <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="./css/styles.css" rel="stylesheet">
-
-</head>
+<?php require "./modules/student/components/Header.php" ?>
 
 <body id="page-top">
 
@@ -49,195 +14,103 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-        <?php var_dump($products) ?>
           <!-- Content Row -->
-          <div class="d-flex flex-column align-items-center">
-
+          <div class="d-flex flex-column align-items-center overflow-hidden position-relative">
+            <div class="d-flex flex-row align-items-center card shadow px-4 w-100">
+              <a href="logout" class="d-flex btn btn-primary btn-icon-split" type="submit">
+                <span class="icon text-white-50">
+                  <i class="fas fa-sign-out-alt"></i>
+                </span>
+                <span class="text">Sair</span>
+              </a>
+              <div class="userData">
+                <h1 class="h3 mb-0 text-gray-800"><?php echo $_SESSION['user']; ?></h1>
+                <h1 class="h3 mb-4 text-gray-800">Saldo: R$ <?php echo $_SESSION['balance']; ?> </h1>
+              </div>
+              <span class="bg-primary text-white position-absolute rounded px-2 m-2 end-0 top-0">R$
+                <?php
+                if (isset($_SESSION['totalCart'])) {
+                  echo $_SESSION['totalCart'];
+                } else {
+                  echo "0";
+                }
+                ?></span>
+            </div>
             <div class="text">
               <h1 class="font-weight-bold text-primary">Comidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
+              <?php $foods = $products[0];
+              if (!$foods) { ?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
+              <?php $foods = $products[0];
+              foreach ($foods as $food)
+                if ($food->getCategory() == "1") { ?>
+                <li class="card shadow m-2 item-container">
+                  <img src="<?php echo $food->getImage(); ?>" class="card-img-top item-image" alt="...">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex flex-column h-100">
+                      <h5 class="card-title"><?php echo $food->getName(); ?></h5>
+                      <p class="card-text"><?php echo $food->getIngredients(); ?></p>
+                      <div class="text-left mt-auto">
+                        <h1 class="h5 text-gray-900">R$ <?php echo $food->getPrice(); ?></h1>
+                      </div>
+                    </div>
+                    <div>
+                      <form action="add-product" method="post">
+                        <input type="hidden" name="productId" value="<?php echo $food->getId(); ?>">
+                        <button class="btn btn-block btn-success btn-icon-split" type="submit">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-shopping-cart"></i>
+                          </span>
+                          <span class="text">Adicionar</span>
+                        </button>
+                      </form>
+                    </div>
                   </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
+                </li>
+              <?php } ?>
             </ul>
 
             <div class="text">
               <h1 class="font-weight-bold text-primary">Bebidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
+              <?php $drinks = $products[1];
+              if (!$drinks) { ?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
+              <?php $drinks = $products[1];
+              foreach ($drinks as $drink)
+                if ($drink->getCategory() == "2") { ?>
+                <li class="card shadow m-2 item-container">
+                  <img src="<?php echo $drink->getImage(); ?>" class="card-img-top item-image" alt="...">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="d-flex flex-column h-100">
+                      <h5 class="card-title"><?php echo $drink->getName(); ?></h5>
+                      <p class="card-text"><?php echo $drink->getIngredients(); ?></p>
+                      <div class="text-left mt-auto">
+                        <h1 class="h5 text-gray-900">R$ <?php echo $drink->getPrice(); ?></h1>
+                      </div>
+                    </div>
+                    <div>
+                      <form action="add-product" method="post">
+                        <input type="hidden" name="productId" value="<?php echo $drink->getId(); ?>">
+                        <button class="btn btn-block btn-success btn-icon-split" type="submit">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-shopping-cart"></i>
+                          </span>
+                          <span class="text">Adicionar</span>
+                        </button>
+                      </form>
+                    </div>
                   </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="card shadow m-4 item-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80"
-                  class="card-img-top item-image" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Sanduiche</h5>
-                  <p class="card-text">Ingredientes.</p>
-                  <div class="text-left">
-                    <h1 class="h5 text-gray-900">R$ 5,00</h1>
-                  </div>
-                  <div>
-                    <a href="comprovante.html" class="btn btn-block btn-success btn-icon-split" type="submit">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Comprar</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
+                </li>
+              <?php } ?>
             </ul>
-
           </div>
           <!-- End of Content Wrapper -->
         </div>
         <!-- End of Page Wrapper -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModal"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="removeModal">Confirmação de exclusão</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Você realmente deseja excluir?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                  <span class="icon text-white-50">
-                    <i class="fas fa-trash"></i>
-                  </span>
-                  <span class="text">Remover</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <?php require_once "./modules/student/components/Footer.php" ?>
+        <?php require_once "./modules/student/components/Footer.php" ?>
 </body>
 
 </html>

@@ -11,24 +11,16 @@
 
   <title>Cadastro de Produtos</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="./css/styles.css" rel="stylesheet">
@@ -39,7 +31,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-  <?php require "./modules/canteen/components/Sidebar.php" ?>
+    <?php require "./modules/canteen/components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -57,14 +49,14 @@
               <h1 class="font-weight-bold text-primary">Comidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php $foods = $products[0]; if(!$foods) {?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
-              <?php $foods = $products[0]; forEach($foods as $food)
+              <?php $foods = $products[0];
+              if (!$foods) { ?><h2>Nenhuma comida cadastrada...</h2><?php } ?>
+              <?php $foods = $products[0];
+              foreach ($foods as $food)
 
-              if($food->getCategory() == "1"){ ?>
+                if ($food->getCategory() == "1") { ?>
                 <li class="card shadow m-4 item-container">
-                  <img
-                    src="<?php echo $food->getImage() ?>"
-                    class="card-img-top item-image" alt="...">
+                  <img src="<?php echo $food->getImage() ?>" class="card-img-top item-image" alt="...">
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $food->getName() ?></h5>
                     <p class="card-text"><?php echo $food->getIngredients() ?></p>
@@ -84,13 +76,13 @@
 
                       <form action="delete-product" method="post" onsubmit="return confirm('Deseja realmente excluir o produto <?php echo $food->getName(); ?>?');">
                         <input type="hidden" name="id" value="<?php echo $food->getId() ?>">
-                        
-                        <button type="submit" class="btn btn-block my-1 btn-danger btn-icon-split" >
+
+                        <button type="submit" class="btn btn-block my-1 btn-danger btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                           </span>
                           <span class="text">Remover</span>
-                        </a>
+                        </button>
                       </form>
 
                       <!-- <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"
@@ -110,13 +102,13 @@
               <h1 class="font-weight-bold text-primary">Bebidas</h1>
             </div>
             <ul class="d-flex menu-container">
-              <?php $drinks = $products[1]; if(!$drinks) {?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
-              <?php $drinks = $products[1]; forEach($drinks as $drink)
-              if($drink->getCategory() == "2"){ ?>
+              <?php $drinks = $products[1];
+              if (!$drinks) { ?><h2>Nenhuma bebida cadastrada...</h2><?php } ?>
+              <?php $drinks = $products[1];
+              foreach ($drinks as $drink)
+                if ($drink->getCategory() == "2") { ?>
                 <li class="card shadow m-4 item-container">
-                  <img
-                    src="<?php echo $drink->getImage() ?>"
-                    class="card-img-top item-image" alt="...">
+                  <img src="<?php echo $drink->getImage() ?>" class="card-img-top item-image" alt="...">
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $drink->getName() ?></h5>
                     <p class="card-text"><?php echo $drink->getIngredients() ?></p>
@@ -136,13 +128,13 @@
 
                       <form action="delete-product" method="post" onsubmit="return confirm('Deseja realmente excluir o produto <?php echo $drink->getName(); ?>?');">
                         <input type="hidden" name="id" value="<?php echo $drink->getId() ?>">
-                        
-                        <button type="submit" class="btn btn-block my-1 btn-danger btn-icon-split" >
+
+                        <button type="submit" class="btn btn-block my-1 btn-danger btn-icon-split">
                           <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                           </span>
                           <span class="text">Remover</span>
-                        </a>
+                          </a>
                       </form>
 
                       <!-- <a href="#" class="btn btn-block my-1 btn-secondary btn-icon-split" data-toggle="modal"

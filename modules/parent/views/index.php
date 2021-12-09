@@ -17,7 +17,6 @@
 
       <!-- Begin Page Content -->
       <div class="container-fluid h-100">
-
         <!-- Content Row -->
         <div class="col-xl-10 col-md-12 d-flex flex-column align-items-center">
           <ul class="mb-4 mt-5">

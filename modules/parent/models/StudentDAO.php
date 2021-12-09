@@ -140,5 +140,18 @@
         echo "Error: " . $e->getMessage();
       }
     }
+
+    public function debit($studentId, $amount){
+      try{
+        $connection = Connection::getConnection();
+        $sql = $connection->prepare("UPDATE students SET balance = balance - :amount WHERE studentId = :studentId");
+        $sql->bindValue(":amount", $amount);
+        $sql->bindValue(":studentId", $studentId);
+        $sql->execute();
+        
+      } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    }
   }
 ?>

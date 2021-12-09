@@ -63,6 +63,9 @@
 				$controller->createParent();
 				break;
 			case "CARDAPIO":
+				require "./modules/canteen/controllers/ProductController.php";
+				$controller = new ProductController();
+				$products = $controller->getProducts();
 				require "./modules/student/views/index.php";
 				break;
 			case "PAINEL-PAIS":
@@ -106,6 +109,49 @@
 				require "./modules/parent/controllers/StudentsController.php";
 				$controller = new StudentsController();
 				$controller->deleteStudent();
+				break;
+			case "ADD-PRODUCT":
+				require "./modules/student/controllers/ControladorAddItemCarrinho.php";
+				require_once './modules/student/models/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorAddItemCarrinho($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
+			case "CARRINHO":
+				require "./modules/student/controllers/ControladorListaCarrinho.php";
+				$controlador = new ControladorListaCarrinho();
+				$controlador->processaRequisicao();
+				break;
+			case "CARRINHOALTQUANT":
+				require "./modules/student/controllers/ControladorAlteraQuantCarrinho.php";
+				require_once './modules/student/models/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorAlteraQuantCarrinho($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
+			case "APAGAITEMCARRINHO":
+				require "./modules/student/controllers/ControladorApagaItemCarrinho.php";
+				require_once './modules/student/models/CarrinhoSession.php';
+				$carrinhoSession = new CarrinhoSession();
+				$controlador = new ControladorApagaItemCarrinho($carrinhoSession);
+				$controlador->processaRequisicao();
+				break;
+			case "MAKE-ORDER":
+				require_once "./modules/student/controllers/ControladorListaCarrinho.php";
+				$controlador = new ControladorListaCarrinho();
+				$controlador->order();
+				header("Location: pedido", true, 301);
+				break;
+			case "PEDIDO":
+				require_once "./modules/student/controllers/ControladorListaCarrinho.php";
+				$controlador = new ControladorListaCarrinho();
+				$order = $controlador->getItems();
+				require "./modules/student/views/Order.php";
+				break;
+			case "BACK":
+				require_once "./modules/student/controllers/ControladorListaCarrinho.php";
+				$controlador = new ControladorListaCarrinho();
+				$order = $controlador->back();
 				break;
 			default:
 				require "./home.php";

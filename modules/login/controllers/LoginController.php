@@ -20,7 +20,7 @@
             $_SESSION['user'] = $user['name'];
             $_SESSION['address'] = $user['address'];
             $_SESSION['cnpj'] = $user['cnpj'];
-            header("Location: Dashboard");
+            header("Location: dashboard");
             break;
           case '2':
             $_SESSION['user'] = $user['name'];
@@ -31,9 +31,10 @@
             $controller = new ProductController();
             $controller->getProducts();
             $_SESSION['user'] = $user['name'];
+            $_SESSION['studentId'] = $user['studentId'];
             $_SESSION['class'] = $user['class'];
             $_SESSION['balance'] = $user['balance'];
-            header("Location: Cardapio");
+            header("Location: cardapio");
             break;
         }
       } else {
