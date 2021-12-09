@@ -6,7 +6,7 @@
       try {
         $connection = Connection::getConnection();
 
-        $sql = $connection->prepare("INSERT INTO students (name, studentId, shift, class, phone, email, password, userType) VALUES (:name, :studentId, :shift, :class, :phone, :email, :password, :userType)");
+        $sql = $connection->prepare("INSERT INTO students (name, studentId, shift, class, phone, email, password, userType, parentId) VALUES (:name, :studentId, :shift, :class, :phone, :email, :password, :userType, :parentId)");
         
         $sql->bindValue(":name", $student->getName());
         $sql->bindValue(":studentId", $student->getStudentId());
@@ -16,6 +16,7 @@
         $sql->bindValue(":email", $student->getEmail());
         $sql->bindValue(":password", $student->getPassword());
         $sql->bindValue(":userType", $student->getUserType());
+        $sql->bindValue(":parentId", $student->getParentId());
 
         $sql->execute();
       } catch (Exception $e) {
@@ -97,6 +98,44 @@
       }
     }
 
+    public function findStudentsByParent($parentId){
+      try{
+
+        $connection = Connection::getConnection();
+        $sql = $connection->prepare("SELECT * from students where parentId = :parentId");
+              
+        $sql->execute(array(
+          ':parentId' => $parentId
+        ));
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $students = array();
+
+        $i = 0;
+
+        while ($key = $sql->fetch(PDO::FETCH_ASSOC)) {
+          $student = new Student();
+
+          $student->setName($key['name']);
+          $student->setStudentId($key['studentId']);
+          $student->setShift($key['shift']);
+          $student->setClass($key['class']);
+          $student->setPhone($key['phone']);
+          $student->setBalance($key['balance']);
+          $student->setEmail($key['email']);
+          $student->setPassword($key['password']);
+          $student->setParentId($key['parentId']);
+          $students[$i] = $student;
+          $i++;
+        }
+
+       return $students;
+      }
+      catch(PDOException $e){
+        return null;
+      }
+    }
+
     public function updateStudent(){
       try{
         $connection = Connection::getConnection();
@@ -154,4 +193,3 @@
       }
     }
   }
-?>

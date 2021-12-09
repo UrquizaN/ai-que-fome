@@ -16,6 +16,7 @@
       $this->student->setEmail($_POST['email']);
       $this->student->setPhone($_POST['phone']);
       $this->student->setPassword($_POST['password']);
+      $this->student->setParentId($_POST['parentId']);
       
       $this->student->createStudent();
 
@@ -36,6 +37,10 @@
 
     public function findStudent() {
       return $student = $this->student->findStudent($_POST['studentId']);
+    }
+
+    public function findStudentsByParent() {
+      return $student = $this->student->findStudentsByParent($_SESSION['parentId']);
     }
 
     public function deleteStudent() {

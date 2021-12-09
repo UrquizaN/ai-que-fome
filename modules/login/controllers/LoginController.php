@@ -24,6 +24,7 @@
             break;
           case '2':
             $_SESSION['user'] = $user['name'];
+            $_SESSION['parentId'] = $user['id'];
             header("Location: painel-pais");
             break;
           case '3':

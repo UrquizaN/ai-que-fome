@@ -27,14 +27,15 @@
                 <h1 class="h3 mb-0 text-gray-800"><?php echo $_SESSION['user']; ?></h1>
                 <h1 class="h3 mb-4 text-gray-800">Saldo: R$ <?php echo $_SESSION['balance']; ?> </h1>
               </div>
-              <span class="bg-primary text-white position-absolute rounded px-2 m-2 end-0 top-0">R$
+              <a href="carrinho" class="bg-primary text-white position-absolute rounded px-2 m-2 end-0 top-0">R$
                 <?php
                 if (isset($_SESSION['totalCart'])) {
                   echo $_SESSION['totalCart'];
                 } else {
                   echo "0";
                 }
-                ?></span>
+                ?>
+                </a>
             </div>
             <div class="text">
               <h1 class="font-weight-bold text-primary">Comidas</h1>

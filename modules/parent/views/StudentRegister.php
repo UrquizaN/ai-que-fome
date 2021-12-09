@@ -29,6 +29,7 @@
                   </div>
 
                   <form action="REGISTER-STUDENT" method="post" class="row w-100 justify-content-center">
+                    <input type="hidden" name="parentId" value="<?php echo $_SESSION['parentId'] ?>">  
                     <div class="form-group p-0">
                       <input class="form-control" type="text" name="studentId" placeholder="Matrícula do aluno" required>
                     </div>

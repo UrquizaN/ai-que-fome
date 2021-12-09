@@ -71,7 +71,7 @@
 			case "PAINEL-PAIS":
 				require "./modules/parent/controllers/StudentsController.php";
 				$controller = new StudentsController();
-				$students = $controller->getStudents();
+				$students = $controller->findStudentsByParent();
       	require "./modules/parent/views/index.php";
 				break;
 			case "CADASTRAR-ALUNO":

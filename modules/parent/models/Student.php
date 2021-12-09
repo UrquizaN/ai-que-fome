@@ -11,8 +11,9 @@
     private $email;
     private $password;
     private $userType;
+    private $parentId;
 
-    public function __construct($studentId = '', $class = '', $shift = '1', $name = '', $phone = null, $email = null, $password = null) {
+    public function __construct($studentId = '', $class = '', $shift = '1', $name = '', $phone = null, $email = null, $password = null, $parentId = null) {
       $this->studentId = $studentId;
       $this->class = $class;
       $this->shift = $shift;
@@ -22,6 +23,7 @@
       $this->balance = 0;
       $this->password = $password;
       $this->userType = "3";
+      $this->parentId = $parentId;
     }
 
     public function getName() {
@@ -54,6 +56,10 @@
 
     public function getPassword() {
       return $this->password;
+    }
+
+    public function getParentId() {
+      return $this->parentId;
     }
 
     public function getUserType() {
@@ -92,6 +98,10 @@
       $this->password = $password;
     }
 
+    public function setParentId($parentId) {
+      $this->parentId = $parentId;
+    }
+
     public function createStudent() {
       $studentDAO = new StudentDAO();
       $studentDAO->createStudent($this);
@@ -107,13 +117,17 @@
       return $studentDAO->findStudent($studentId);
     }
 
+    public function findStudentsByParent($parentId){
+      $studentDAO = new StudentDAO();
+      return $studentDAO->findStudentsByParent($parentId);
+    }
+
     public function updateStudent() {
       $studentDAO = new StudentDAO();
       $studentDAO->updateStudent($this);
     }
 
     public function deleteStudent() {
-      echo "delete student";
       $studentDAO = new StudentDAO();
       $studentDAO->deleteStudent($this);
     }
