@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require "./modules/canteen/components/Header.php" ?>
 
-<head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Cadastro de Produtos</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-  <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="../../css/styles.css" rel="stylesheet">
-
-  <script>
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
-    })
-  </script>
+<!-- <script>
+  function findParent() {
+    <?php
+    require_once "./modules/canteen/controllers/ParentController.php";
+    $controller = new ParentController();
+    $parents = $controller->findParent();
+    ?>
+  }
+</script> -->
 
 </head>
 
@@ -45,7 +18,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-  <?php require "../components/Sidebar.php" ?>
+    <?php require "./modules/canteen/components/Sidebar.php" ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -59,7 +32,6 @@
           <!-- Content Row -->
           <div class="col d-flex flex-column align-items-center">
 
-            <!-- Product Register Form -->
             <div class="col-xl-5 col-md-10 mb-4 mt-5">
               <div class="card shadow h-100 py-2">
                 <div class="card-body">
@@ -68,13 +40,11 @@
                       <h1 class="h4 text-gray-900 mb-4">Consultar Responsável</h1>
                     </div>
 
-                    <form
-                      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form method="post" action="busca" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                       <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small"
-                          placeholder="Nome do responsável" name="parent-name">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="E-mail do responsável" name="parent-email">
                         <div class="input-group-append">
-                          <button class="btn btn-primary" type="button">
+                          <button class="btn btn-primary" type="submit">
                             <i class="fas fa-search fa-sm"></i>
                           </button>
                         </div>
@@ -86,37 +56,60 @@
               </div>
             </div>
 
-            <div class="col-xl-5 col-md-10 mb-4 mt-5">
-              <div class="card shadow h-100 py-2 border-left-primary">
-                <div class="card-body">
-                  <div class="row align-items-center justify-content-center">
-                    <div>
-                      <ul class="mb-0">
-                        <li class="d-flex justify-content-between">
-                          <p class="mb-0 d-flex align-items-center">Cláudio</p>
-                          <div>
-                            <a href="editar-responsavel.html" class="btn btn-primary btn-icon-split">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-pen"></i>
-                              </span>
-                              <span class="text">Editar</span>
-                            </a>
+            <?php
+            if (isset($parents) and $parents != false) {
+            ?>
+              <div class="col-xl-5 col-md-10 mb-4 mt-5">
+                <div class="card shadow h-100 py-2 border-left-primary">
+                  <div class="card-body">
+                    <div class="row align-items-center justify-content-center">
+                      <div>
+                        <ul class="mb-0">
+                          <li class="d-flex justify-content-between">
+                            <p class="mb-0 d-flex align-items-center"><?php echo $parents->getName(); ?></p>
+                            <div class="d-flex align-items-center">
+                              <form action="editar-pai" method="post" class="m-0 mx-1">
+                                <input type="hidden" name="parent-email" value="<?php echo $parents->getEmail(); ?>" />
+                                <button class="btn btn-block my-1 btn-primary btn-icon-split">
+                                  <span class="icon text-white-50 d-flex align-items-center">
+                                    <i class="fas fa-pen"></i>
+                                  </span>
+                                  <span class="text">Editar</span>
+                                </button>
+                              </form>
 
-                            <a href="#" class="btn btn-danger btn-icon-split" data-toggle="modal" data-target="#removeModal">
-                              <span class="icon text-white-50">
-                                <i class="fas fa-trash"></i>
-                              </span>
-                              <span class="text">Remover</span>
-                            </a>
-                          </div>
-                        </li>
-                      </ul>
+                              <form action="delete-parent" method="post" class="m-0" onsubmit="return confirm('Deseja realmente excluir o responsável <?php echo $parents->getName(); ?>?');">
+                                <input type="hidden" name="id" value="<?php echo $parents->getId(); ?>">
+
+                                <button type="submit" class="d-flex btn btn-block my-1 btn-danger btn-icon-split">
+                                  <span class="icon text-white-50 d-flex align-items-center">
+                                    <i class="fas fa-trash"></i>
+                                  </span>
+                                  <span class="text">Remover</span>
+                                </button>
+                              </form>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
                     </div>
-
                   </div>
                 </div>
               </div>
-            </div>
+            <?php
+
+            }
+            ?>
+
+            <?php
+            if (isset($parents) and $parents == false) {
+            ?>
+              <h1>Responsável não encontrado</h1>
+            <?php
+
+            }
+            ?>
 
           </div>
           <!-- End of Content Wrapper -->
@@ -124,8 +117,7 @@
         <!-- End of Page Wrapper -->
 
         <!-- Modal -->
-        <div class="modal fade" id="removeModal" tabindex="-1" role="dialog"
-          aria-labelledby="removeModal" aria-hidden="true">
+        <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModal" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">

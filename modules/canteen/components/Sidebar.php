@@ -21,23 +21,23 @@
 
     <hr class="sidebar-divider">
 
-    <!-- <div class="sidebar-heading">
+    <div class="sidebar-heading">
       Consulta
     </div>
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="../views/Balance.php">
         <i class="fas fa-fw fa-dollar-sign"></i>
         <span>Saldo</span></a>
-    </li>
+    </li> -->
 
     <li class="nav-item">
-      <a class="nav-link" href="../views/FindParent.php">
+      <a class="nav-link" href="busca">
         <i class="fas fa-fw fa-user"></i>
         <span>Responsável</span></a>
     </li>
 
-    <hr class="sidebar-divider"> -->
+    <hr class="sidebar-divider">
 
     <div class="sidebar-heading">
       Cadastro

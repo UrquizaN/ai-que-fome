@@ -2,6 +2,7 @@
   require "ParentsDAO.php";
 
   class Parents {
+    private $id;
     private $name;
     private $document;
     private $phone;
@@ -10,14 +11,19 @@
     private $password;
     private $userType;
 
-    public function __construct($name, $document, $phone, $email, $login = null, $password) {
+    public function __construct($id = null, $name = '', $document = null, $phone = null, $email = '', $login = null, $password = null, $userType = '2') {
+      $this->id = $id;
       $this->name = $name;
       $this->document = $document;
       $this->phone = $phone;
       $this->email = $email;
       $this->login = $login;
       $this->password = $password;
-      $this->userType = "2";
+      $this->$userType = $userType;
+    }
+
+    public function getId() {
+      return $this->id;
     }
 
     public function getName() {
@@ -46,6 +52,10 @@
 
     public function getUserType() {
       return $this->userType;
+    }
+
+    public function setId($id) {
+      $this->id = $id;
     }
 
     public function setName($name) {
@@ -79,6 +89,21 @@
     public function createParent() {
       $parentDAO = new ParentsDAO();
       $parentDAO->createParent($this);
+    }
+
+    public function updateParent() {
+      $parentDAO = new ParentsDAO();
+      $parentDAO->updateParent($this);
+    }
+
+    public function deleteParent() {
+      $parentDAO = new ParentsDAO();
+      $parentDAO->deleteParent($this);
+    }
+
+    public function findParent($parentEmail) {
+      $parentDAO = new ParentsDAO();
+      return $parentDAO->findParent($parentEmail);
     }
   }
 ?>

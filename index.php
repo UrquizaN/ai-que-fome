@@ -58,9 +58,31 @@
 				require "./modules/canteen/views/RegisterParent.php";
 				break;
 			case "REGISTER-PARENT":
-				require "./modules/canteen/controllers/RegisterParentController.php";
-				$controller = new RegisterParentController();
+				require "./modules/canteen/controllers/ParentController.php";
+				$controller = new ParentController();
 				$controller->createParent();
+				break;
+			case "BUSCA":
+				require "./modules/canteen/controllers/ParentController.php";
+				$controller = new ParentController();
+				$parents = $controller->findParent();
+				require_once "./modules/canteen/views/FindParent.php";
+				break;
+			case "EDITAR-PAI":
+				require "./modules/canteen/controllers/ParentController.php";
+				$controller = new ParentController();
+				$parents = $controller->findParent();
+				require "./modules/canteen/views/EditParent.php";
+				break;
+			case "UPDATE-PARENT":
+				require "./modules/canteen/controllers/ParentController.php";
+				$controller = new ParentController();
+				$controller->updateParent();
+				break;
+			case "DELETE-PARENT":
+				require "./modules/canteen/controllers/ParentController.php";
+				$controller = new ParentController();
+				$controller->deleteParent();
 				break;
 			case "CARDAPIO":
 				require "./modules/canteen/controllers/ProductController.php";
@@ -86,7 +108,7 @@
 				require "./modules/parent/controllers/StudentsController.php";
 				$controller = new StudentsController();
 				$student = $controller->findStudent();
-				require("./modules/parent/views/EditStudent.php");
+				require "./modules/parent/views/EditStudent.php";
 				break;
 			case "UPDATE-STUDENT":
 				require "./modules/parent/controllers/StudentsController.php";

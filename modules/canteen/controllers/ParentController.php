@@ -1,11 +1,11 @@
 <?php 
   require "./modules/canteen/models/Parents.php";
 
-  class RegisterParentController {
+  class ParentController {
     private $parents;
 
     public function __construct() {
-      $this->parents = new Parents($_POST['name'], $_POST['document'], $_POST['email'], $_POST['phone'], $_POST['login'], $_POST['password']);
+      $this->parents = new Parents();
     }
 
     public function createParent() {
@@ -18,6 +18,25 @@
       
       $this->parents->createParent();
 
+      header("Location: dashboard", true, 302);
+    }
+
+    public function findParent() {
+      if(isset($_POST['parent-email'])) {
+        return $parents = $this->parents->findParent($_POST['parent-email']);
+      }
+    }
+
+    public function updateParent() {
+
+      $this->parents->updateParent();
+  
+      header("Location: dashboard", true, 302);
+    }
+
+    public function deleteParent() {
+      $this->parents->deleteParent();
+  
       header("Location: dashboard", true, 302);
     }
   }
