@@ -16,29 +16,29 @@
           <span>Alunos</span></a>
       </li>
 
-      <hr class="sidebar-divider">
+      <!-- <hr class="sidebar-divider">
 
       <div class="sidebar-heading">
         Consulta
-      </div>
+      </div> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="extrato.html">
           <i class="fas fa-fw fa-dollar-sign"></i>
           <span>Extrato</span></a>
-      </li>
+      </li> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="restricoes.html">
           <i class="fas fa-fw fa-ban"></i>
           <span>Restrições</span></a>
-      </li>
+      </li> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="consumo.html">
           <i class="fas fa-fw fa-list"></i>
           <span>Consumo</span></a>
-      </li>
+      </li> -->
 
       <hr class="sidebar-divider">
 

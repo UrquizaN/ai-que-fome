@@ -20,7 +20,7 @@
         <!-- Content Row -->
         <div class="col-xl-10 col-md-12 d-flex flex-column align-items-center">
           <ul class="mb-4 mt-5">
-            <?php if (!$students) { ?><h2>Nenhuma aluno cadastrado...</h2><?php } ?>
+            <?php if (!$students) { ?><h2>Nenhum aluno cadastrado...</h2><?php } ?>
 
             <?php foreach ($students as $student) { ?>
               <li class="card shadow h-100 py-2 my-2 border-left-primary">
