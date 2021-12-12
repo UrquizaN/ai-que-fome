@@ -17,11 +17,11 @@
           <!-- Content Row -->
           <div class="d-flex flex-column align-items-center overflow-hidden position-relative">
             <div class="d-flex flex-row align-items-center card shadow px-4 w-100">
-              <a href="logout" class="d-flex btn btn-primary btn-icon-split" type="submit">
+              <a href="logout" class="d-flex btn btn-primary btn-icon-split align-items-center p-r2">
                 <span class="icon text-white-50">
                   <i class="fas fa-sign-out-alt"></i>
                 </span>
-                <span class="text">Sair</span>
+                Sair
               </a>
               <div class="userData">
                 <h1 class="h3 mb-0 text-gray-800"><?php echo $_SESSION['user']; ?></h1>
